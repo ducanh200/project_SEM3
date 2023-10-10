@@ -150,7 +150,7 @@ function Header() {
                         <nav className="greennature-navigation" id="greennature-main-navigation">
                             <ul id="menu-main-menu-1" className="sf-menu greennature-main-menu">
                                 <li className="menu-item menu-item-home current-menu-item greennature-normal-menu"><a href="index-2.html"><i className="fa fa-home"></i>Home</a></li>
-                                <li className="menu-item menu-item-has-children greennature-normal-menu"><a href="#" className="sf-with-ul-pre"><i className="fa fa-file-text-o"></i>Pages</a>
+                                <li className="menu-item menu-item-has-children greennature-normal-menu"><a href="#" className="sf-with-ul-pre"><i className="fa fa-file-text-o"></i>About Us</a>
                                     <ul className="sub-menu">
                                         <li className="menu-item"><a href="act-now.html">Act Now</a></li>
                                         <li className="menu-item"><a href="about-1.html">About Us 1</a></li>
@@ -175,7 +175,7 @@ function Header() {
                                         </li>
                                     </ul>
                                 </li>
-                                <li className="menu-item menu-item-has-childrenmenu-item menu-item-has-children greennature-mega-menu"><a href="portfolio-grid-3-columns-no-space.html" className="sf-with-ul-pre"><i className="fa fa-globe"></i>Portfolio</a>
+                                <li className="menu-item menu-item-has-childrenmenu-item menu-item-has-children greennature-mega-menu"><a href="portfolio-grid-3-columns-no-space.html" className="sf-with-ul-pre"><i className="fa fa-globe"></i>What we do</a>
                                     <div className="sf-mega">
                                         <ul className="sub-menu">
                                             <li className="menu-item menu-item-has-children" data-column="four columns" data-size="1/3"><a href="portfolio-grid-3-columns.html" className="sf-with-ul-pre">Portfolio Classic</a>
@@ -204,7 +204,7 @@ function Header() {
                                         </ul>
                                     </div>
                                 </li>
-                                <li className="menu-item menu-item-has-childrenmenu-item menu-item-has-children greennature-normal-menu"><a href="blog-full-with-right-sidebar.html" className="sf-with-ul-pre">Blog</a>
+                                <li className="menu-item menu-item-has-childrenmenu-item menu-item-has-children greennature-normal-menu"><a href="blog-full-with-right-sidebar.html" className="sf-with-ul-pre">Topic</a>
                                     <ul className="sub-menu">
                                         <li className="menu-item"><a href="blog-full-with-right-sidebar.html">Blog Full</a></li>
                                         <li className="menu-item menu-item-has-children menu-item-"><a href="#" className="sf-with-ul-pre">Blog Column</a>
