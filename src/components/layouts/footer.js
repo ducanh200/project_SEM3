@@ -1,3 +1,5 @@
+import React from "react";
+
 function Footer() {
     return (
 <footer className="footer-wrapper">
@@ -16,17 +18,17 @@ function Footer() {
                         <div className="clear"></div>
                         <div className="textwidget"><span className="clear"></span><span className="greennature-space" style={{display:"block",marginTop:"-6px"}}></span> Address: 184 Main Collins Street West Victoria 8007
 
-                            <span className="clear"></span><span className="greennature-space" style={{margintop: "10px", display: "block"}}></span>
+                            <span className="clear"></span><span className="greennature-space" style={{marginTop: "10px", display: "block"}}></span>
 
-                            <i className="greennature-icon fa fa-phone" style={{verticalAlign: "middle", color: "#fff" , fontsize: "16px"}}></i> +1800-222-3333
+                            <i className="greennature-icon fa fa-phone" style={{verticalAlign: "middle", color: "#fff" , fontSize: "16px"}}></i> +1800-222-3333
 
-                            <span className="clear"></span><span className="greennature-space" style={{margintop: "10px", display: "block"}}></span>
+                            <span className="clear"></span><span className="greennature-space" style={{marginTop: "10px", display: "block"}}></span>
 
-                            <i className="greennature-icon fa fa-mobile" style={{verticalAlign: "middle", color: "#fff" , fontsize: "20px"}}></i> +1833-232-3443
+                            <i className="greennature-icon fa fa-mobile" style={{verticalAlign: "middle", color: "#fff" , fontSize: "20px"}}></i> +1833-232-3443
 
-                            <span className="clear"></span><span className="greennature-space" style={{margintop: "10px", display: "block"}}></span>
+                            <span className="clear"></span><span className="greennature-space" style={{marginTop: "10px", display: "block"}}></span>
 
-                            <i className="greennature-icon fa fa-envelope-o" style={{verticalAlign: "middle", color: "#fff", fontsize: "16px"}}></i> contact@yourdomain.com</div>
+                            <i className="greennature-icon fa fa-envelope-o" style={{verticalAlign: "middle", color: "#fff", fontSize: "16px"}}></i> contact@yourdomain.com</div>
                     </div>
                 </div>
                 <div className="footer-column three columns" id="footer-widget-3">
@@ -97,7 +99,7 @@ function Footer() {
             <div className="copyright-wrapper">
                 <div className="copyright-container container">
                     <div className="copyright-left">
-                        <a href="#"><i className="greennature-icon fa fa-facebook" style={{verticalAlign: "middle",color: "#bbbbbb",fontsize: "20px"}}></i></a> <a href="#"><i className="greennature-icon fa fa-twitter" style={{verticalAlign: "middle",color: "#bbbbbb",fontsize: "20px"}}></i></a> <a href="#"><i className="greennature-icon fa fa-dribbble" style={{verticalAlign: "middle",color: "#bbbbbb",fontsize: "20px"}}></i></a> <a href="#"><i className="greennature-icon fa fa-pinterest" style={{verticalAlign: "middle",color: "#bbbbbb",fontsize: "20px"}}></i></a> <a href="#"><i className="greennature-icon fa fa-google-plus" style={{verticalAlign: "middle",color: "#bbbbbb",fontsize: "20px"}}></i></a> <a href="#"><i className="greennature-icon fa fa-instagram" style={{verticalAlign: "middle",color: "#bbbbbb",fontsize: "20px"}}></i></a>
+                        <a href="#"><i className="greennature-icon fa fa-facebook" style={{verticalAlign: "middle",color: "#bbbbbb",fontSize: "20px"}}></i></a> <a href="#"><i className="greennature-icon fa fa-twitter" style={{verticalAlign: "middle",color: "#bbbbbb",fontSize: "20px"}}></i></a> <a href="#"><i className="greennature-icon fa fa-dribbble" style={{verticalAlign: "middle",color: "#bbbbbb",fontSize: "20px"}}></i></a> <a href="#"><i className="greennature-icon fa fa-pinterest" style={{verticalAlign: "middle",color: "#bbbbbb",fontSize: "20px"}}></i></a> <a href="#"><i className="greennature-icon fa fa-google-plus" style={{verticalAlign: "middle",color: "#bbbbbb",fontSize: "20px"}}></i></a> <a href="#"><i className="greennature-icon fa fa-instagram" style={{verticalAlign: "middle",color: "#bbbbbb",fontSize: "20px"}}></i></a>
                     </div>
                     <div className="copyright-right">
                        <a target="_blank" href="https://www.templateshub.net">Templates Hub</a> </div>

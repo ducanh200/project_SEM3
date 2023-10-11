@@ -60,13 +60,13 @@ function Header() {
                     <div className="greennature-header-inner-overlay"></div>
                     <div className="greennature-logo">
                         <div className="greennature-logo-inner">
-                            <a href="index-2.html">
+                            <a href='/'>
                                 <img src="images/logo.png" alt="" /> </a>
                         </div>
                         <div className="greennature-responsive-navigation dl-menuwrapper" id="greennature-responsive-navigation">
                             <button className="dl-trigger">Open Menu</button>
                             <ul id="menu-main-menu" className="dl-menu greennature-main-mobile-menu">
-                                <li className="menu-item menu-item-home current-menu-item page_item page-item-5680 current_page_item"><a href="index-2.html" aria-current="page">Home</a></li>
+                                <li className="menu-item menu-item-home current-menu-item page_item page-item-5680 current_page_item"><a href='/' aria-current="page">Home</a></li>
                                 <li className="menu-item menu-item-has-children menu-item-15"><a href="#">Pages</a>
                                     <ul className="dl-submenu">
                                         <li className="menu-item"><a href="act-now.html">Act Now</a></li>
@@ -149,8 +149,8 @@ function Header() {
                     <div className="greennature-navigation-wrapper">
                         <nav className="greennature-navigation" id="greennature-main-navigation">
                             <ul id="menu-main-menu-1" className="sf-menu greennature-main-menu">
-                                <li className="menu-item menu-item-home current-menu-item greennature-normal-menu"><a href="index-2.html"><i className="fa fa-home"></i>Home</a></li>
-                                <li className="menu-item menu-item-has-children greennature-normal-menu"><a href="#" className="sf-with-ul-pre"><i className="fa fa-file-text-o"></i>About Us</a>
+                                <li className="menu-item menu-item-home current-menu-item greennature-normal-menu"><a href='/'><i className="fa fa-home"></i>Home</a></li>
+                                <li className="menu-item menu-item-has-children greennature-normal-menu"><a href="#" className="sf-with-ul-pre"><i className="fa fa-file-text-o"></i>Pages</a>
                                     <ul className="sub-menu">
                                         <li className="menu-item"><a href="act-now.html">Act Now</a></li>
                                         <li className="menu-item"><a href="about-1.html">About Us 1</a></li>
@@ -175,7 +175,7 @@ function Header() {
                                         </li>
                                     </ul>
                                 </li>
-                                <li className="menu-item menu-item-has-childrenmenu-item menu-item-has-children greennature-mega-menu"><a href="portfolio-grid-3-columns-no-space.html" className="sf-with-ul-pre"><i className="fa fa-globe"></i>What we do</a>
+                                <li className="menu-item menu-item-has-childrenmenu-item menu-item-has-children greennature-mega-menu"><a href="portfolio-grid-3-columns-no-space.html" className="sf-with-ul-pre"><i className="fa fa-globe"></i>Portfolio</a>
                                     <div className="sf-mega">
                                         <ul className="sub-menu">
                                             <li className="menu-item menu-item-has-children" data-column="four columns" data-size="1/3"><a href="portfolio-grid-3-columns.html" className="sf-with-ul-pre">Portfolio Classic</a>
@@ -204,7 +204,7 @@ function Header() {
                                         </ul>
                                     </div>
                                 </li>
-                                <li className="menu-item menu-item-has-childrenmenu-item menu-item-has-children greennature-normal-menu"><a href="blog-full-with-right-sidebar.html" className="sf-with-ul-pre">Topic</a>
+                                <li className="menu-item menu-item-has-childrenmenu-item menu-item-has-children greennature-normal-menu"><a href="blog-full-with-right-sidebar.html" className="sf-with-ul-pre">Blog</a>
                                     <ul className="sub-menu">
                                         <li className="menu-item"><a href="blog-full-with-right-sidebar.html">Blog Full</a></li>
                                         <li className="menu-item menu-item-has-children menu-item-"><a href="#" className="sf-with-ul-pre">Blog Column</a>
