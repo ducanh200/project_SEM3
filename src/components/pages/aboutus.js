@@ -5,7 +5,6 @@ function AboutUs() {
     return (
         <Layout>
         <Sidebar/>
-            <body data-rsssl="1" className="home page-template-default page page-id-5680 _masterslider _msp_version_3.2.7 woocommerce-no-js">
                 <div className="content-wrapper">
                 <div className="greennature-content">
                     <div className="with-sidebar-wrapper">
@@ -149,7 +148,7 @@ function AboutUs() {
                     <div className="clear">
                     </div>
                 </div>
-            </body>
+
                 <script type='text/javascript' src='js/jquery/jquery.js'></script>
                 <script type='text/javascript' src='js/jquery/jquery-migrate.min.js'></script>
 

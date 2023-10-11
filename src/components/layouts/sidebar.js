@@ -1,7 +1,5 @@
 function Sidebar(){
     return(
-        <body data-rsssl="1" className="home page-template-default page page-id-5680 _masterslider _msp_version_3.2.7 woocommerce-no-js">
-        <div className="body-wrapper  float-menu" data-home="https://demo.goodlayers.com/greennature/">
         <div className="content-wrapper">
             <div className="greennature-content">
                 <div className="with-sidebar-wrapper">
@@ -68,8 +66,6 @@ function Sidebar(){
                 </div>
             </div>
         </div>
-        </div>
-        </body>
     )
 }
 export default Sidebar;
