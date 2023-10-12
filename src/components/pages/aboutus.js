@@ -1,10 +1,9 @@
 import Layout from "../layouts/layouts";
-import Sidebar from "../layouts/sidebar";
 
 function AboutUs() {
     return (
         <Layout>
-        <Sidebar/>
+
                 <div className="content-wrapper">
                 <div className="greennature-content">
                     <div className="with-sidebar-wrapper">

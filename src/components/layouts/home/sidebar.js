@@ -12,22 +12,22 @@ function Sidebar(){
           <div class="carousel-item active" data-bs-interval="10000">
             <img src="/upload/slider-1.jpg" class="d-block w-100" alt="..."/>
             <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Some representative placeholder content for the first slide.</p>
+              <h1 style={{color:"white"}}>First slide label</h1>
+              <h2 style={{color:"white"}}>Some representative placeholder content for the first slide.</h2>
             </div>
           </div>
           <div class="carousel-item" data-bs-interval="2000">
             <img src="/upload/slider-2.jpg" class="d-block w-100" alt="..."/>
             <div class="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p>
+            <h1 style={{color:"white"}}>First slide label</h1>
+              <h2 style={{color:"white"}}>Some representative placeholder content for the first slide.</h2>
             </div>
           </div>
           <div class="carousel-item">
             <img src="/upload/slider-3.jpg" class="d-block w-100" alt="..."/>
             <div class="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>Some representative placeholder content for the third slide.</p>
+            <h1 style={{color:"white"}}>First slide label</h1>
+              <h2 style={{color:"white"}}>Some representative placeholder content for the first slide.</h2>
             </div>
           </div>
         </div>
