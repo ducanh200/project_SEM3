@@ -1,6 +1,6 @@
 
 
-function Footer(){
+function Other(){
     return(
         <section id="content-section-9">
                         <div class="greennature-parallax-wrapper greennature-background-image gdlr-show-all greennature-skin-dark-skin" id="greennature-parallax-wrapper-3" data-bgspeed="0.15" style={{backgroundImage: "url('upload/service-bg-2.jpg')", paddingTop: "135px", paddingBottom: "80px"}}>
@@ -40,7 +40,7 @@ function Footer(){
                                         <h2 class="stunning-item-title">The only way to make this happened is to take action!</h2>
                                         <div class="stunning-item-caption greennature-skin-content">
                                             <p>Praesent commodo cursus magna, vel scelerisque nislet.</p>
-                                        </div><a class="stunning-item-button greennature-button large greennature-lb-payment" href="#" style={{backgroundColor: "#ecb338", color: "#ffffff"}}>Donate Now!</a><a class="stunning-item-button greennature-button large" href="#">Act Now!</a></div>
+                                        </div><a data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" class="stunning-item-button greennature-button large greennature-lb-payment" href="#" style={{backgroundColor: "#ecb338", color: "#ffffff",textDecoration:"none"}}>Donate Now!</a><a class="stunning-item-button greennature-button large" href="#" style={{textDecoration: 'none'}}>Act Now!</a></div>
                                 </div>
                                 <div class="clear"></div>
                                 <div class="clear"></div>
@@ -50,4 +50,4 @@ function Footer(){
                     </section>
     )
 }
-export default Footer;
+export default Other;

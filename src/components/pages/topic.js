@@ -1,4 +1,5 @@
 import Layout from "../layouts/layouts";
+import topics from "../data.js/topics";
 function Topic (){
     return(
         <Layout>
@@ -12,7 +13,7 @@ function Topic (){
                                         <div className="greennature-item-title-wrapper greennature-item  greennature-center greennature-extra-large ">
                                             <div className="greennature-item-title-container container">
                                                 <div className="greennature-item-title-head">
-                                                    <h3 className="greennature-item-title greennature-skin-title greennature-skin-border">STORY ABOUT US</h3>
+                                                    <h3 className="greennature-item-title greennature-skin-title greennature-skin-border">Environmental topics</h3>
                                                     <div className="greennature-item-title-caption greennature-skin-info">Condimentum Ipsum Vestibulum</div>
                                                     <div className="clear"></div>
                                                 </div>
@@ -42,13 +43,13 @@ function Topic (){
 
                                             <div className="filter clearfix gdlr-core-filterer-wrap gdlr-core-js  gdlr-core-item-pdlr gdlr-core-style-text gdlr-core-center-align">
                                                 <ul>
-                                                    <li><a href="#" className="active" data-filter="*">All</a></li>
-                                                    <li><a href="#" data-filter=".class1" >Animals</a></li>
-                                                    <li><a href="#" data-filter=".class2" >Environment</a></li>
-                                                    <li><a href="#" data-filter=".class3" >Volunteer</a></li>
+                                                    <li><a href="#" style={{ textDecoration: 'none' }} data-filter="*">All</a></li>
+                                                    {topics.map((topic,index)=>(
+                                                        <li  key={index}><a style={{ textDecoration: 'none' }} href="#" data-filter=".class3" >{topic}</a></li>
+                                                    ))}
+                                                   
                                                 </ul>
-                                            </div>    
-
+                                            </div>   
                                             <div className="portfolio-item-holder  greennature-portfolio-column-2">
                                                 <div className="greennature-isotope filter-container" data-type="portfolio" data-layout="masonry">
                                                     <div className="clear"></div>
@@ -250,24 +251,6 @@ function Topic (){
           
             <div className="clear"></div>
         </div>
-        <script type='text/javascript' src='js/jquery/jquery.js'></script>
-    <script type='text/javascript' src='js/jquery/jquery-migrate.min.js'></script>
-
-    <script type='text/javascript' src='plugins/superfish/js/superfish.js'></script>
-    <script type='text/javascript' src='js/hoverIntent.min.js'></script>
-    <script type='text/javascript' src='plugins/dl-menu/modernizr.custom.js'></script>
-    <script type='text/javascript' src='plugins/dl-menu/jquery.dlmenu.js'></script>
-    <script type='text/javascript' src='plugins/jquery.easing.js'></script>
-    <script type='text/javascript' src='plugins/fancybox/jquery.fancybox.pack.js'></script>
-    <script type='text/javascript' src='plugins/fancybox/helpers/jquery.fancybox-media.js'></script>
-    <script type='text/javascript' src='plugins/fancybox/helpers/jquery.fancybox-thumbs.js'></script>
-    <script type='text/javascript' src='plugins/flexslider/jquery.flexslider.js'></script>
-    <script type='text/javascript' src='plugins/jquery.isotope.min.js'></script>
-    <script type='text/javascript' src='js/plugins.js'></script>
-    <script type='text/javascript' src='js/isotope.js'></script>
-    <script type='text/javascript' src='plugins/jquery.transit.min.js'></script>
-    <script type='text/javascript' src='plugins/gdlr-portfolio/gdlr-portfolio-script.js'></script>
-
         </Layout>
         
     )

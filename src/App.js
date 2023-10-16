@@ -8,7 +8,7 @@ import Topic from './components/pages/topic';
 
 function App() {
   return (
-    <div className="App" >
+    <div className="App">
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/aboutus' element={<AboutUs/>}/>

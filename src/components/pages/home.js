@@ -4,7 +4,6 @@ import Nav from "../layouts/home/nav";
 import Breadcumb from "../layouts/home/breadcumb";
 import Project from "../layouts/home/project";
 import Info from "../layouts/home/info";
-import Footer from "../layouts/home/footer";
 
 function Home() {
     return (
@@ -15,7 +14,6 @@ function Home() {
         <Nav />
         <Project/>
         <Info/>
-        <Footer />
         </div>
         </Layout>
     )
