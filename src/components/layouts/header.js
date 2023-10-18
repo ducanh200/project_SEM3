@@ -60,7 +60,7 @@ function Header() {
                             <div  class="modal-dialog" style={{border:"1px #7287a2 solid",borderRadius:"10px"}}>
                                 <div style={{backgroundImage:"url('https://tecwoodoutdoorfloor.com/upload/images/Blog/xanh-ngoc-luc-bao.jpg')"}} class="modal-content">
                                 <div class="modal-header" style={{borderBottom:"0"}}>
-                                    <h2><b style={{color:"rgb(93, 194, 105)",marginLeft:"160px"}}>Donation</b></h2>
+                                    <h2><b style={{color:"rgb(93, 194, 105)",marginLeft:"160px"}}>Donation with paypal</b></h2>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div style={{background:"rgba(255, 255, 255, 0)"}} class="modal-body">
@@ -79,18 +79,7 @@ function Header() {
                                     <input style={{width:"400px",background:"rgba(255, 255, 255, 0.4)"}}  class="greennature-payment-price-fill" type="text" placeholder="Your Amount(USD)" />
                                     <input class="greennature-payment-price" type="hidden" name="amount" value="10" />
                                     <div className="style-method" style={{marginTop:"20px"}}>
-                                    <label for="paypal">                        
-                                        <input name="donate" type="radio" id="paypal" value="PAYPAL"/>
-                                        <span class="checkmark"></span>
-                                        <b style={{color:"white"}}>  Paypal</b>    
-                                    </label>
-                                    <br></br>
-                                    <br></br>
-                                    <label for="vnpay">                        
-                                        <input name="donate" type="radio" id="vnpay" value="VNPAY"/>
-                                        <span class="checkmark"></span>
-                                       <b style={{color:"white"}}> VN-Pay</b>
-                                    </label>
+                                    
                         </div>
                     </div>
                                     </form>

@@ -1,0 +1,15 @@
+import Header from "./admin/header";
+import Aside from "./admin/aside";
+function LayoutAdmin({children}){
+    return(
+        <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        <>
+        <Header/>
+        <Aside/>
+        <div>{children}</div>
+        </>
+        </div>
+    )
+}
+export default LayoutAdmin;

@@ -45,7 +45,7 @@ function Topic (){
                                                 <ul>
                                                     <li><a href="#" style={{ textDecoration: 'none' }} data-filter="*">All</a></li>
                                                     {topics.map((topic,index)=>(
-                                                        <li  key={index}><a style={{ textDecoration: 'none' }} href="#" data-filter=".class3" >{topic}</a></li>
+                                                        <li  key={index}><a style={{ textDecoration: 'none' }} href="#" data-filter=".class3" >{topic.name}</a></li>
                                                     ))}
                                                    
                                                 </ul>

@@ -41,7 +41,7 @@ function Footer() {
                                     <a href="#"><img src="upload/shutterstock_294481373-150x150.jpg" alt="" width="150" height="150" /></a>
                                 </div>
                                 <div className="recent-post-widget-content">
-                                    <div className="recent-post-widget-title"><a href="#">Sem Porta Mollis Parturi</a></div>
+                                    <div className="recent-post-widget-title"><a style={{textDecoration:"none"}} href="#">Sem Porta Mollis Parturi</a></div>
                                     <div className="recent-post-widget-info">
                                         <div className="blog-info blog-date greennature-skin-info"><i className="fa fa-clock-o"></i><a href="#">21 Mar 2014</a></div>
                                         <div className="clear"></div>
@@ -54,7 +54,7 @@ function Footer() {
                                     <a href="#"><img src="upload/shutterstock_181393724-150x150.jpg" alt="" width="150" height="150" /></a>
                                 </div>
                                 <div className="recent-post-widget-content">
-                                    <div className="recent-post-widget-title"><a href="#">Nullam Lorem Mattis Purus</a></div>
+                                    <div className="recent-post-widget-title"><a style={{textDecoration:"none"}} href="#">Nullam Lorem Mattis Purus</a></div>
                                     <div className="recent-post-widget-info">
                                         <div className="blog-info blog-date greennature-skin-info"><i className="fa fa-clock-o"></i><a href="#">21 Mar 2014</a></div>
                                         <div className="clear"></div>

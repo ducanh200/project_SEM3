@@ -4,6 +4,7 @@ import Home from './components/pages/home';
 import AboutUs from './components/pages/aboutus';
 import WhatWeDo from './components/pages/whatwedo';
 import Topic from './components/pages/topic';
+import Dashboard from './components/pages/admin/dashboard';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Route path='/whatwedo' element={<WhatWeDo/>}/>
       <Route path='/topic' element={<Topic/>}/>
 
+      <Route path='admin/' element={<Dashboard/>}/>
     </Routes>
     </div>
   );
