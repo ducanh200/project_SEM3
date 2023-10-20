@@ -5,6 +5,8 @@ import AboutUs from './components/pages/aboutus';
 import WhatWeDo from './components/pages/whatwedo';
 import Topic from './components/pages/topic';
 import Dashboard from './components/pages/admin/dashboard';
+import Table from './components/pages/admin/table';
+import News from './components/pages/admin/news';
 
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
       <Route path='/topic' element={<Topic/>}/>
 
       <Route path='admin/' element={<Dashboard/>}/>
+      <Route path='admin/table' element={<Table/>}/>
+      <Route path='admin/news' element={<News/>}/>
     </Routes>
     </div>
   );
