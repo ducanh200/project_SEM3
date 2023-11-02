@@ -1,5 +1,5 @@
-import Layout from "../layouts/layouts";
-import topics from "../data.js/topics";
+import Layout from "../../layouts/layouts";
+import topics from "../../data/topics";
 function Topic (){
     return(
         <Layout>

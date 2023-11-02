@@ -31,7 +31,7 @@ function Header() {
                                 <li className="menu-item menu-item-has-children greennature-normal-menu"><a href='/'><i className="fa fa-home"></i>Home</a></li>
                                 <li className="menu-item menu-item-has-children greennature-normal-menu"><a href='/whatwedo' className="sf-with-ul-pre"><i className="fa fa-file-text-o"></i>What we do</a>
                                 </li>
-                                <li className="menu-item menu-item-has-childrenmenu-item menu-item-has-children greennature-mega-menu"><a href='/topic' className="sf-with-ul-pre"><i className="fa fa-globe"></i>Topic</a>
+                                <li className="menu-item menu-item-has-childrenmenu-item menu-item-has-children greennature-mega-menu"><a href='/topic' className="sf-with-ul-pre">Topic</a>
                                     <div className="sf-mega">
                                     </div>
                                 </li>
@@ -57,26 +57,26 @@ function Header() {
 </div>
 <div className="donate" >
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style={{marginTop:"50px"}}>
-                            <div  class="modal-dialog" style={{border:"1px #7287a2 solid",borderRadius:"10px"}}>
-                                <div style={{backgroundImage:"url('https://tecwoodoutdoorfloor.com/upload/images/Blog/xanh-ngoc-luc-bao.jpg')"}} class="modal-content">
+                            <div  class="modal-dialog" style={{border:"0px"}}>
+                                <div style={{backgroundColor:"#dddddd"}} class="modal-content">
                                 <div class="modal-header" style={{borderBottom:"0"}}>
-                                    <h2><b style={{color:"rgb(93, 194, 105)",marginLeft:"160px"}}>Donation with paypal</b></h2>
+                                    <h2><b style={{color:"rgb(93, 194, 105)",marginLeft:"90px"}}>Donation with paypal</b></h2>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div style={{background:"rgba(255, 255, 255, 0)"}} class="modal-body">
-                                    <form style={{textAlign:"center",background:"rgba(255, 255, 255, 0)"}}>
+                                    <form style={{textAlign:"left",background:"rgba(255, 255, 255, 0)"}}>
                                         <div class="mb-3">
-                                        <label for="recipient-name" class="col-form-label" ><b style={{color:"white"}}>NAME<span style={{color:"red"}}>*</span></b></label>
+                                        <label for="recipient-name" class="col-form-label" ><b style={{color:"#b0b0b0",marginLeft:"32px"}}>NAME<span style={{color:"red"}}>*</span></b></label>
                                         <input required style={{width:"400px",marginLeft:"7%",borderRadius:"0",background:"rgba(255, 255, 255, 0.4)"}} placeholder="Your Name" type="text" class="form-control" id="name"/>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="message-text" class="col-form-label"><b style={{color:"white"}}>EMAIL<span style={{color:"red"}}>*</span></b></label>
+                                        <label for="message-text" class="col-form-label"><b style={{color:"#b0b0b0",marginLeft:"32px"}}>EMAIL<span style={{color:"red"}}>*</span></b></label>
                                         <input required style={{width:"400px",marginLeft:"7%",borderRadius:"0",background:"rgba(255, 255, 255, 0.4)"}} placeholder="Your Email" type="text" class="form-control" id="email"></input>
                                     </div>
                                     
                                     <div  class="greennature-payment-amount">
-                                    <div  class="greennature-payment-amount-head" style={{color:"white"}}>Donate for project or fund !</div>                     
-                                    <input style={{width:"400px",background:"rgba(255, 255, 255, 0.4)"}}  class="greennature-payment-price-fill" type="text" placeholder="Your Amount(USD)" />
+                                    <div  class="greennature-payment-amount-head" style={{color:"#b0b0b0",marginLeft:"32px"}}>Donate for project or fund ! <span style={{color:"red"}}>*</span></div>                     
+                                    <input style={{width:"400px",background:"rgba(255, 255, 255, 0.4)",marginLeft:"32px"}}  class="greennature-payment-price-fill" type="text" placeholder="Your Amount(USD)" />
                                     <input class="greennature-payment-price" type="hidden" name="amount" value="10" />
                                     <div className="style-method" style={{marginTop:"20px"}}>
                                     
@@ -85,7 +85,7 @@ function Header() {
                                     </form>
                                 </div>
                                 <div class="modal-footer" style={{borderTop:"0"}}>
-                                    <button style={{width:"300px",borderRadius:"20px",marginRight:"17.75%",backgroundColor:"rgb(93, 194, 105)"}} type="button" class="btn btn-primary">Donate</button>
+                                    <button style={{width:"300px",borderRadius:"20px",marginRight:"17.75%",backgroundColor:"rgb(93, 194, 105)",height:"50px",marginTop:"-20px"}} type="button" class="btn btn-primary">Donate</button>
                                 </div>
 
                             </div>

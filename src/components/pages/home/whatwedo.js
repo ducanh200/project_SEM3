@@ -1,5 +1,5 @@
-import Layout from "../layouts/layouts";
-import projects from "../data.js/projects";
+import Layout from "../../layouts/layouts";
+import projects from "../../data/projects";
 
 function WhatWeDo() {
     return (

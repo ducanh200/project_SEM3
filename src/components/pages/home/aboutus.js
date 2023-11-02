@@ -1,4 +1,4 @@
-import Layout from "../layouts/layouts";
+import Layout from "../../layouts/layouts";
 
 function AboutUs() {
     return (
@@ -121,22 +121,6 @@ function AboutUs() {
                                             <div className="clear"></div>
                                         </div>
                                     </div>
-                                    <div className="clear"></div>
-                                </div>
-                            </div>
-                            <div className="clear"></div>
-                        </section>
-                        <section id="content-section-5">
-                            <div className="greennature-parallax-wrapper greennature-background-image gdlr-show-all greennature-skin-dark-skin" id="greennature-parallax-wrapper-2" data-bgspeed="0.1" style={{backgroundImage: "url('upload/service-bg-2.jpg')", paddingTop: "125px", paddingBottom: "90px", }}>
-                                <div className="container">
-                                    <div className="greennature-stunning-item-ux greennature-ux">
-                                        <div className="greennature-item greennature-stunning-item greennature-stunning-center">
-                                            <h2 className="stunning-item-title">The only way to make this happened is to take action!</h2>
-                                            <div className="stunning-item-caption greennature-skin-content">
-                                                <p>Praesent commodo cursus magna, vel scelerisque nislet.</p>
-                                            </div><a className="stunning-item-button greennature-button large greennature-lb-payment" href="#" style={{backgroundColor: "#fec428", color: "#ffffff"}}>Donate Now!</a><a className="stunning-item-button greennature-button large" href="#">Act Now!</a></div>
-                                    </div>
-                                    <div className="clear"></div>
                                     <div className="clear"></div>
                                 </div>
                             </div>

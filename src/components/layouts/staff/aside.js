@@ -1,6 +1,6 @@
 
 
-function Aside(){
+function Aside_staff(){
     return(
         <aside className="left-sidebar" data-sidebarbg="skin6">
             <div className="scroll-sidebar">
@@ -38,4 +38,4 @@ function Aside(){
         </aside>
     )
 }
-export default Aside;
+export default Aside_staff;

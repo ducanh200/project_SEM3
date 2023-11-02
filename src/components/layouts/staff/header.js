@@ -1,6 +1,6 @@
 
 
-function Header(){
+function Header_staff(){
     return(
 
         <header className="topbar" data-navbarbg="skin6">
@@ -55,4 +55,4 @@ function Header(){
         </header>
     )
 }
-export default Header;
+export default Header_staff;

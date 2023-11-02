@@ -1,7 +1,7 @@
 import Header from "../../layouts/admin/header";
 import LayoutAdmin from "../../layouts/layoutAdmin";
 import Breadcrumb from "../../layouts/admin/breadcrumb";
-function Table(){
+function Projects(){
     return(
         <LayoutAdmin>
             <Breadcrumb/>
@@ -70,4 +70,4 @@ function Table(){
         </LayoutAdmin>
     )
 }
-export default Table;
+export default Projects;
