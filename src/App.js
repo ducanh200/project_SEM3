@@ -9,9 +9,12 @@ import News from './components/pages/admin/news';
 import NewsDetail from './components/pages/home/newsdetail';
 import ProjectDetail from './components/pages/home/projectdetail';
 import Projects from './components/pages/admin/projects';
-import CreateProject from './components/pages/admin/createproject';
+import CreateProjects from './components/pages/admin/createproject';
 import Staff_project from './components/pages/staff/staff_projects';
 import Staff_detail from './components/pages/staff/staff_detail';
+import EditProjects from './components/pages/admin/editproject';
+import CreateNews from './components/pages/admin/createnews';
+import EditNews from './components/pages/admin/editnews';
 
 
 function App() {
@@ -31,7 +34,10 @@ function App() {
       <Route path='admin/' element={<Dashboard/>}/>
       <Route path='admin/projects' element={<Projects/>}/>
       <Route path='admin/news' element={<News/>}/>
-      <Route path='admin/createproject' element={<CreateProject/>}/>
+      <Route path='admin/createproject' element={<CreateProjects/>}/>
+      <Route path='admin/editproject' element={<EditProjects/>}/>
+      <Route path='admin/createnews' element={<CreateNews/>}/>
+      <Route path='admin/editnews' element={<EditNews/>}/>
 
 
       <Route path='staff/projects' element={<Staff_project/>}/>

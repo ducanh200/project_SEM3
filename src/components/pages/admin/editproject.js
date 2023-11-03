@@ -1,7 +1,7 @@
 import LayoutAdmin from "../../layouts/layoutAdmin";
 import Breadcrumb from "../../layouts/admin/breadcrumb";
 
-function CreateProjects(){
+function EditProjects(){
     return(
         <LayoutAdmin>
         <div className="page-breadcrumb">
@@ -13,7 +13,7 @@ function CreateProjects(){
                                 <ol className="breadcrumb">
                                     <li className="breadcrumb-item">Home</li>
                                     <li className="breadcrumb-item active" aria-current="page">Projects</li>
-                                    <li className="breadcrumb-item active" aria-current="page">Create a Projects</li>
+                                    <li className="breadcrumb-item active" aria-current="page">Edit a Projects</li>
                                 </ol>
                             </nav>
                         </div>
@@ -25,7 +25,7 @@ function CreateProjects(){
             <div className="card-bory">
                 <form action="" method="post" enctype="multipart/form-data" style={{width: "700px",float: "none",margin: "auto",height:"670px"}} >
                 <div class="form-group"  >
-                    <h2 style={{textAlign: "center", marginTop: "15px"}}>Create A Projects</h2>
+                    <h2 style={{textAlign: "center", marginTop: "15px"}}>Edit A Projects</h2>
                 </div>
                 <div class="form-group" style={{marginTop: "20px"}} >
                     <div class="form-create" style={{float: "left",marginRight: "100px"}}>
@@ -60,7 +60,7 @@ function CreateProjects(){
                     <textarea style={{width: "600px", height: "200px",backgroundColor: "#ffffff",color: "black", border: "1px solid #000000"}} class="form-control" name="description"></textarea>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Create</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </div>
                 </form>
             </div>
@@ -68,4 +68,4 @@ function CreateProjects(){
     </LayoutAdmin>
     )
 }
-export default CreateProjects;
+export default EditProjects;

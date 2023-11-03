@@ -4,14 +4,31 @@ import Breadcrumb from "../../layouts/admin/breadcrumb";
 function Projects(){
     return(
         <LayoutAdmin>
-            <Breadcrumb/>
+            <div className="page-breadcrumb">
+                <div className="row align-items-center">
+                    <div className="col-md-6 col-8 align-self-center">
+                        <h3 className="page-title mb-0 p-0">Projects</h3>
+                        <div className="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol className="breadcrumb">
+                                    <li className="breadcrumb-item">Home</li>
+                                    <li className="breadcrumb-item active" aria-current="page">Projects</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div className="container-fluid" style={{ marginTop: "25px"}}>
                 <div className="row">
                     <div className="col-sm-12">
                         <div className="card">
                             <div className="card-body">
-                                <h4 className="card-title">Basic Table</h4>
-                                <h6 className="card-subtitle">Add class <code>.table</code></h6>
+                                <div style={{display: "flex", justifyContent: "space-between"}}>
+                                    <h2 className="card-title">Projects</h2>
+                                    <a className="btn btn-primary" href="admin/createproject" style={{marginBottom: "auto"}}>Create</a>
+                                </div>
                                 <div className="table-responsive">
                                     <table className="table user-table">
                                         <thead>
