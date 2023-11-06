@@ -5,6 +5,22 @@ function Dashboard(){
     return(
         <LayoutAdmin>
             <Breadcrumb/>
+            <div className="page-breadcrumb">
+                <div className="row align-items-center">
+                    <div className="col-md-6 col-8 align-self-center">
+                        <h3 className="page-title mb-0 p-0">Dashboard</h3>
+                        <div className="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol className="breadcrumb">
+                                    <li className="breadcrumb-item">Home</li>
+                                    <li className="breadcrumb-item active" aria-current="page">Dashboard</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div className="container-fluid" style={{ marginTop: "25px"}}>
                 <div className="row">
                     <div className="col-lg-8">
