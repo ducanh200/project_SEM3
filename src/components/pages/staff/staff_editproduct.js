@@ -1,10 +1,9 @@
-import LayoutAdmin from "../../layouts/layoutAdmin";
-import Breadcrumb from "../../layouts/admin/breadcrumb";
 
-function CreateProjects(){
+
+function Staff_editproduct(){
     return(
-        <LayoutAdmin>
-        <div className="page-breadcrumb">
+        <LayoutStaff>
+            <div className="page-breadcrumb">
                 <div className="row align-items-center">
                     <div className="col-md-6 col-8 align-self-center">
                         <h3 className="page-title mb-0 p-0">Projects</h3>
@@ -80,7 +79,8 @@ function CreateProjects(){
                 </form>
             </div>
         </div>
-    </LayoutAdmin>
+        </LayoutStaff>
     )
 }
-export default CreateProjects;
+
+export default Staff_editproduct;

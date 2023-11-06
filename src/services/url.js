@@ -1,7 +1,7 @@
 
 
 const url = {
-    BASE_URL :"https://localhost:7277/api",
+    BASE_URL :"https://localhost:7173/api",
     CATEGORY:{
         LIST: "/category",
         CREATE: "/category",

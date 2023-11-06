@@ -1,31 +1,24 @@
-import Header from "../../layouts/admin/header";
 import LayoutAdmin from "../../layouts/layoutAdmin";
-import Breadcrumb from "../../layouts/admin/breadcrumb";
-function NewsList(){
+
+
+function ListDonate(){
     return(
         <LayoutAdmin>
 <div className="page-breadcrumb">
                 <div className="row align-items-center">
                     <div className="col-md-6 col-8 align-self-center">
-                        <h3 className="page-title mb-0 p-0">News</h3>
+                        <h3 className="page-title mb-0 p-0">Donate</h3>
                         <div className="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><a href="#">news</a></li>
-                                    <li className="breadcrumb-item active" aria-current="page">list</li>
+                                    <li className="breadcrumb-item"><a href="#">Donate</a></li>
+                                    <li className="breadcrumb-item active" aria-current="page">List</li>
                                 </ol>
                             </nav>
                         </div>
                     </div>
-                    <div className="col-md-6 col-4 align-self-center">
-                        <div className="text-end upgrade-btn">
-                            <a href="/admin/createnews"
-                                className="btn btn-danger d-none d-md-inline-block text-white">Create News</a>
-                        </div>
-                    </div>
                 </div>
-            </div>    
-            <div className="container-fluid" style={{ marginTop: "25px"}}>
+            </div>            <div className="container-fluid" style={{ marginTop: "25px"}}>
                 <div className="row">
                     <div className="col-sm-12">
                         <div className="card">
@@ -90,4 +83,4 @@ function NewsList(){
         </LayoutAdmin>
     )
 }
-export default NewsList;
+export default ListDonate;
