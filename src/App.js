@@ -8,9 +8,8 @@ import Dashboard from './components/pages/admin/dashboard';
 import NewsDetail from './components/pages/home/newsdetail';
 import ProjectDetail from './components/pages/home/projectdetail';
 import Projects from './components/pages/admin/projects';
-import CreateProjects from './components/pages/admin/createproject';
+import CreateProject from './components/pages/admin/createproject';
 import Staff_project from './components/pages/staff/staff_projects';
-<<<<<<< HEAD
 import NewsAll from './components/pages/home/news';
 import NewsList from './components/pages/admin/news';
 import EditProjects from './components/pages/admin/editproject';
@@ -23,12 +22,6 @@ import DetailProject from './components/pages/admin/detailproject';
 import Staff_createproject from './components/pages/staff/staff_createproject';
 import Staff_editproduct from './components/pages/staff/staff_editproduct';
 
-=======
-import Staff_detail from './components/pages/staff/staff_detail';
-import EditProjects from './components/pages/admin/editproject';
-import CreateNews from './components/pages/admin/createnews';
-import EditNews from './components/pages/admin/editnews';
->>>>>>> 3e1af5257ee227e3c56b1db865a929681eac83a2
 
 
 function App() {
@@ -48,7 +41,6 @@ function App() {
 
       <Route path='admin/' element={<Dashboard/>}/>
       <Route path='admin/projects' element={<Projects/>}/>
-<<<<<<< HEAD
       <Route path='admin/news' element={<NewsList/>}/>
       <Route path='admin/createproject' element={<CreateProject/>}/>
       <Route path='admin/editproject' element={<EditProjects/>}/>
@@ -57,13 +49,6 @@ function App() {
       <Route path='admin/listdonate' element={<ListDonate/>}/>
       <Route path='admin/donatedetail' element={<Donatedetail />}/>
       <Route path='admin/detailproject' element={<DetailProject />}/>
-=======
-      <Route path='admin/news' element={<News/>}/>
-      <Route path='admin/createproject' element={<CreateProjects/>}/>
-      <Route path='admin/editproject' element={<EditProjects/>}/>
-      <Route path='admin/createnews' element={<CreateNews/>}/>
-      <Route path='admin/editnews' element={<EditNews/>}/>
->>>>>>> 3e1af5257ee227e3c56b1db865a929681eac83a2
 
 
       <Route path='staff/projects' element={<Staff_project/>}/>

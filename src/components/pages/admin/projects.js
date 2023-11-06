@@ -4,7 +4,6 @@ import Breadcrumb from "../../layouts/admin/breadcrumb";
 function Projects(){
     return(
         <LayoutAdmin>
-<<<<<<< HEAD
 <div className="page-breadcrumb">
                 <div className="row align-items-center">
                     <div className="col-md-6 col-8 align-self-center">
@@ -14,22 +13,11 @@ function Projects(){
                                 <ol className="breadcrumb">
                                     <li className="breadcrumb-item"><a href="#">Project</a></li>
                                     <li className="breadcrumb-item active" aria-current="page">Project</li>
-=======
-            <div className="page-breadcrumb">
-                <div className="row align-items-center">
-                    <div className="col-md-6 col-8 align-self-center">
-                        <h3 className="page-title mb-0 p-0">Projects</h3>
-                        <div className="d-flex align-items-center">
-                            <nav aria-label="breadcrumb">
-                                <ol className="breadcrumb">
-                                    <li className="breadcrumb-item">Home</li>
-                                    <li className="breadcrumb-item active" aria-current="page">Projects</li>
->>>>>>> 3e1af5257ee227e3c56b1db865a929681eac83a2
+
                                 </ol>
                             </nav>
                         </div>
                     </div>
-<<<<<<< HEAD
                     <div className="col-md-6 col-4 align-self-center">
                         <div className="text-end upgrade-btn">
                             <a href="/admin/createproject"
@@ -39,12 +27,7 @@ function Projects(){
                 </div>
             </div>           
              <div className="container-fluid" style={{ marginTop: "25px"}}>
-=======
-                </div>
-            </div>
-            
-            <div className="container-fluid" style={{ marginTop: "25px"}}>
->>>>>>> 3e1af5257ee227e3c56b1db865a929681eac83a2
+
                 <div className="row">
                     <div className="col-sm-12">
                         <div className="card">

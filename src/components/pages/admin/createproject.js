@@ -32,7 +32,6 @@ function CreateProjects(){
                     <label for="exampleFormControlInput1">Name</label>
                     <input name="name" type="text"  class="form-control" placeholder="" style={{width: "300px",backgroundColor: "#ffffff",color: "black", border: "1px solid #000000"}} />
                     </div>
-<<<<<<< HEAD
                     <div class="form-create" style={{float: "left",marginLeft: "5px"}}>
                     <label for="exampleFormControlInput1">Fund</label>
                     <input name="price" min={"0"} type="number"  class="form-control" placeholder="" style={{width: "200px",backgroundColor: "#ffffff",color: "black", border: "1px solid #000000"}}/>
@@ -74,34 +73,7 @@ function CreateProjects(){
                 <div class="form-group" style={{marginTop: "10px"}}>
                     <label for="exampleFormControlInput1">Description</label>
                     <textarea style={{width: "605px", height: "80px",backgroundColor: "#ffffff",color: "black", border: "1px solid #000000"}} class="form-control" name="description"></textarea>
-=======
-                    <div class="form-create" style={{float: "left",marginRight: "100px"}}>
-                    <label for="exampleFormControlInput1">Price</label>
-                    <input name="price" type="number"  class="form-control" placeholder="" style={{width: "200px",backgroundColor: "#ffffff",color: "black", border: "1px solid #000000"}}/>
-                    </div>
-                </div>
-
-                <div class="form-group" style={{marginTop: "100px"}}>
-                    <label for="exampleFormControlFile1">Thumbnail</label>
-                    <br></br>
-                    <input style={{backgroundColor: "#ffffff",color: "black", border: "1px solid #000000"}} type="file" name="thumbnail" class="form-control-file" id="exampleFormControlFile1"/>
-                </div>
-
-                <div class="form-group">
-                    <div class="form-create_2" style={{float: "left",marginRight: "50px"}}> <label for="exampleFormControlInput1">Discount</label>
-                        <input name="discount" type="number"  class="form-control" placeholder="" style={{width: "168px",backgroundColor: "#ffffff",color: "black", border: "1px solid #000000"}}/></div>
-                    <div class="form-create_2" style={{float: "left",marginRight: "50px"}}>  <label for="exampleFormControlInput1">Qty</label>
-                        <input name="qty" type="number"  class="form-control" placeholder="" style={{width: "168px",backgroundColor: "#ffffff",color: "black", border: "1px solid #000000"}}/></div>
-                    <div class="form-create_2" style={{float: "left",marginRight: "50px"}}> <label for="exampleFormControlInput1">Category</label>
-                        <select name="category_id" class="form-control" style={{width: "168px",backgroundColor: "#ffffff",color: "black", border: "1px solid #000000"}}>
-                                <option value="{{$item->id}}"></option>      
-                        </select></div>
-
-                </div>
-                <div class="form-group" style={{marginTop: "100px"}}>
-                    <label for="exampleFormControlInput1">Description</label>
-                    <textarea style={{width: "600px", height: "200px",backgroundColor: "#ffffff",color: "black", border: "1px solid #000000"}} class="form-control" name="description"></textarea>
->>>>>>> 3e1af5257ee227e3c56b1db865a929681eac83a2
+    
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Create</button>

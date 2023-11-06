@@ -41,11 +41,8 @@ function CreateNews(){
                 <div class="form-group" style={{marginTop: "100px"}}>
                     <label for="exampleFormControlFile1">Thumbnail</label>
                     <br></br>
-<<<<<<< HEAD
                     <input style={{backgroundColor: "#ffffff",color: "black", border: "1px solid #000000",width:"250px"}} type="file" name="thumbnail" class="form-control-file" id="exampleFormControlFile1"/>
-=======
-                    <input style={{backgroundColor: "#ffffff",color: "black", border: "1px solid #000000"}} type="file" name="thumbnail" class="form-control-file" id="exampleFormControlFile1"/>
->>>>>>> 3e1af5257ee227e3c56b1db865a929681eac83a2
+
                 </div>
 
                 <div class="form-group" style={{marginTop: "20px"}} >

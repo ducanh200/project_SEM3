@@ -1,4 +1,4 @@
-
+import LayoutStaff from "../../layouts/layoutStaff";
 
 function Staff_editproduct(){
     return(
