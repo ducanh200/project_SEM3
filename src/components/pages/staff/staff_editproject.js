@@ -1,6 +1,6 @@
 import LayoutStaff from "../../layouts/layoutStaff";
 
-function Staff_editproduct(){
+function Staff_editproject(){
     return(
         <LayoutStaff>
             <div className="page-breadcrumb">
@@ -83,4 +83,4 @@ function Staff_editproduct(){
     )
 }
 
-export default Staff_editproduct;
+export default Staff_editproject;

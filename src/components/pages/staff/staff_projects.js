@@ -3,7 +3,23 @@ import Header from "../../layouts/staff/header";
 import LayoutAdmin from "../../layouts/layoutAdmin";
 import Breadcrumb_staff from "../../layouts/staff/breadcrumb";
 import LayoutStaff from "../../layouts/layoutStaff";
+import {useEffect, useState } from "react";
+import api from "../../../services/api";
+import url from "../../../services/url";
+import { NavLink } from "react-router-dom";
 function Staff_project(){
+    const [projects,setProjects] = useState([]);
+    const loadProjects = async ()=>{
+        try {
+            const rs = await api.get(url.PROJECT.LIST);
+            setProjects(rs.data);
+        } catch (error) {
+
+        }
+    }
+    useEffect(()=>{
+        loadProjects();
+    },[]);
     return(
         <LayoutStaff>
             <Breadcrumb_staff/>
@@ -19,48 +35,22 @@ function Staff_project(){
                                         <thead>
                                             <tr>
                                                 <th className="border-top-0">#</th>
-                                                <th className="border-top-0">First Name</th>
-                                                <th className="border-top-0">Last Name</th>
-                                                <th className="border-top-0">Username</th>
+                                                <th className="border-top-0">Name</th>
+                                                <th className="border-top-0">City</th>
+                                                <th className="border-top-0">Country</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        {
+                                                projects.map(project=>(
                                             <tr>
-                                                <td>1</td>
-                                                <td>Deshmukh</td>
-                                                <td>Prohaska</td>
-                                                <td>@Genelia</td>
+                                                <td>{project.id}</td>
+                                                <td>{project.name}</td>
+                                                <td>{project.city}</td>
+                                                <td>{project.country.name}</td>
+                                                <td><NavLink to={`/staff/detailproject/${project.id}`}><a className="btn btn-primary" href="">More</a></NavLink></td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Deshmukh</td>
-                                                <td>Gaylord</td>
-                                                <td>@Ritesh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Sanghani</td>
-                                                <td>Gusikowski</td>
-                                                <td>@Govinda</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Roshan</td>
-                                                <td>Rogahn</td>
-                                                <td>@Hritik</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Joshi</td>
-                                                <td>Hickle</td>
-                                                <td>@Maruti</td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Nigam</td>
-                                                <td>Eichmann</td>
-                                                <td>@Sonu</td>
-                                            </tr>
+                                            ))}
                                         </tbody>
                                     </table>
                                 </div>

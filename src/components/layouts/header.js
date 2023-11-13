@@ -29,6 +29,7 @@ function Header() {
                         <nav className="greennature-navigation" id="greennature-main-navigation">
                             <ul id="menu-main-menu-1" className="sf-menu greennature-main-menu">
                                 <li className="menu-item menu-item-has-children greennature-normal-menu"><a href='/'><i className="fa fa-home"></i>Home</a></li>
+                                <li className="menu-item menu-item-has-children greennature-normal-menu"><a href='/news' className="sf-with-ul-pre"><i className="fa fa-file-text-o"></i>News</a></li>
                                 <li className="menu-item menu-item-has-children greennature-normal-menu"><a href='/whatwedo' className="sf-with-ul-pre"><i className="fa fa-file-text-o"></i>What we do</a>
                                 </li>
                                 <li className="menu-item menu-item-has-childrenmenu-item menu-item-has-children greennature-mega-menu"><a href='/topic' className="sf-with-ul-pre">Topic</a>

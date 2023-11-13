@@ -1,4 +1,3 @@
-import news from "../../data/news";
 import Layout from "../../layouts/layouts";
 
 
@@ -31,15 +30,15 @@ function ProjectDetail(){
                                                 </div>
                                             </div>
                                         </div>
-                                        {news.map((n,index)=>(  
+
                                         <div className="greennature-portfolio-content">
                                             <div className="greennature-portfolio-info">
                                                 <h4 className="head">Project Info</h4>
                                                  
                                                 <div className="content">
-                                                    <div className="portfolio-info portfolio-clients"><span className="info-head greennature-title">Date </span>{n.create_at}</div>
-                                                    <div className="portfolio-info portfolio-skills"><span className="info-head greennature-title">City </span>{n.city}</div>
-                                                    <div className="portfolio-info portfolio-website"><span className="info-head greennature-title">Country </span>{n.country}</div>
+                                                    <div className="portfolio-info portfolio-clients"><span className="info-head greennature-title">Date </span></div>
+                                                    <div className="portfolio-info portfolio-skills"><span className="info-head greennature-title">City </span></div>
+                                                    <div className="portfolio-info portfolio-website"><span className="info-head greennature-title">Country </span></div>
                                                     <div className="clear"></div>
 
                                                 </div>
@@ -52,7 +51,6 @@ function ProjectDetail(){
                                             </div>
                                             <div className="clear"></div>
                                         </div>
-                                        ))}
                                     </div>
 
                                     <div className="clear"></div>

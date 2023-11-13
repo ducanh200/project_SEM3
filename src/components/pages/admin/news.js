@@ -1,11 +1,25 @@
 import Header from "../../layouts/admin/header";
 import LayoutAdmin from "../../layouts/layoutAdmin";
 import Breadcrumb from "../../layouts/admin/breadcrumb";
+import {useEffect, useState } from "react";
+import api from "../../../services/api";
+import url from "../../../services/url";
 function NewsList(){
+    const [news,setNews] = useState([]);
+    const loadNews = async ()=>{
+        try {
+            const rs = await api.get(url.NEWS.LIST);
+            setNews(rs.data);
+        } catch (error) {
+
+        }
+    }
+    useEffect(()=>{
+        loadNews();
+    },[]);
     return(
         <LayoutAdmin>
-<div className="page-breadcrumb">
-
+            <div className="page-breadcrumb">
                 <div className="row align-items-center">
                     <div className="col-md-6 col-8 align-self-center">
                         <h3 className="page-title mb-0 p-0">News</h3>
@@ -42,48 +56,24 @@ function NewsList(){
                                         <thead>
                                             <tr>
                                                 <th className="border-top-0">#</th>
-                                                <th className="border-top-0">First Name</th>
-                                                <th className="border-top-0">Last Name</th>
-                                                <th className="border-top-0">Username</th>
+                                                <th className="border-top-0">Name</th>
+                                                <th className="border-top-0">Image</th>
+                                                <th className="border-top-0">Country</th>
+                                                <th></th>
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {news.map(news=>(
                                             <tr>
-                                                <td>1</td>
-                                                <td>Deshmukh</td>
-                                                <td>Prohaska</td>
-                                                <td>@Genelia</td>
+                                                <td>{news.id}</td>
+                                                <td>{news.name}</td>
+                                                <td><img src={news.thumbnail} /></td>
+                                                <td>{news.country.name}</td>
+                                                <td><a href="" className="btn btn-primary">More</a></td>
+                                                
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Deshmukh</td>
-                                                <td>Gaylord</td>
-                                                <td>@Ritesh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Sanghani</td>
-                                                <td>Gusikowski</td>
-                                                <td>@Govinda</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Roshan</td>
-                                                <td>Rogahn</td>
-                                                <td>@Hritik</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Joshi</td>
-                                                <td>Hickle</td>
-                                                <td>@Maruti</td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Nigam</td>
-                                                <td>Eichmann</td>
-                                                <td>@Sonu</td>
-                                            </tr>
+                                            ))}
                                         </tbody>
                                     </table>
                                 </div>

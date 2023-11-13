@@ -1,6 +1,20 @@
 import Layout from "../../layouts/layouts";
-import topics from "../../data/topics";
+import {useEffect, useState } from "react";
+import api from "../../../services/api";
+import url from "../../../services/url";
 function Topic (){
+    const [topics,setTopic] = useState([]);
+    const loadTopics = async ()=>{
+        try {
+            const rs = await api.get(url.TOPIC.LIST);
+            setTopic(rs.data);
+        } catch (error) {
+
+        }
+    }
+    useEffect(()=>{
+        loadTopics();
+    },[]);
     return(
         <Layout>
         <div className="content-wrapper">
@@ -44,8 +58,8 @@ function Topic (){
                                             <div className="filter clearfix gdlr-core-filterer-wrap gdlr-core-js  gdlr-core-item-pdlr gdlr-core-style-text gdlr-core-center-align">
                                                 <ul>
                                                     <li><a href="#" style={{ textDecoration: 'none' }} data-filter="*">All</a></li>
-                                                    {topics.map((topic,index)=>(
-                                                        <li  key={index}><a style={{ textDecoration: 'none' }} href="#" data-filter=".class3" >{topic.name}</a></li>
+                                                    {topics.map((topic)=>(
+                                                        <li ><a style={{ textDecoration: 'none' }} href="#" data-filter=".class3" >{topic.name}</a></li>
                                                     ))}
                                                    
                                                 </ul>

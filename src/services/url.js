@@ -2,15 +2,27 @@
 
 const url = {
     BASE_URL :"https://localhost:7173/api",
-    CATEGORY:{
-        LIST: "/category",
-        CREATE: "/category",
-        DETAIL: "/category/get-by-id"
+    TOPIC:{
+        LIST: "/topic",
+        CREATE: "/topic",
+        DETAIL: "/topic/get-by-id"
     },
-    PRODUCT:{
-        LIST: "/product",
-        DETAIL:"/product/get-by-id",
-        RELATEDS:"/product/relateds"
+    COUNTRY:{
+        LIST: "/country",
+        CREATE: "/country",
+        DETAIL: "/country/get-by-id"
+    },
+    PROJECT:{
+        LIST: "/project",
+        CREATE:"/project",
+        DETAIL:"/project/get-by-id",
+        RELATEDS:"/project/relateds"
+    },
+    NEWS:{
+        LIST: "/news",
+        CREATE:"/news",
+        DETAIL:"/news/get-by-id",
+        RELATEDS:"/news/relateds"
     },
     USER:{
         LOGIN:"/auth/login",

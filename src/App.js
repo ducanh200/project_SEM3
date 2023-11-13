@@ -20,7 +20,12 @@ import Donatedetail from './components/pages/admin/donatedetail';
 import Staff_detailproject from './components/pages/staff/staff_detailproject';
 import DetailProject from './components/pages/admin/detailproject';
 import Staff_createproject from './components/pages/staff/staff_createproject';
-import Staff_editproduct from './components/pages/staff/staff_editproduct';
+import Staff_news from './components/pages/staff/staff_news';
+import Staff_editnews from './components/pages/staff/staff_editnews';
+import Donate from './components/pages/home/donate';
+import DetailNews from './components/pages/admin/detailnews';
+import Staff_editproject from './components/pages/staff/staff_editproject';
+import Staff_detailNews from './components/pages/staff/staff_detailnews';
 
 
 
@@ -33,8 +38,9 @@ function App() {
       <Route path='/whatwedo' element={<WhatWeDo/>}/>
       <Route path='/topic' element={<Topic/>}/>
       <Route path='/news' element={<NewsAll/>}/>
-      <Route path='/newsdetail' element={<NewsDetail/>}/>
-      <Route path='/projectdetail' element={<ProjectDetail/>}/>
+      <Route path='/newsdetail/:id' element={<NewsDetail/>}/>
+      <Route path='/projectdetail/:id' element={<ProjectDetail/>}/>
+      <Route path='/donate' element={<Donate/>}/>
 
 
       
@@ -48,13 +54,17 @@ function App() {
       <Route path='admin/editnews' element={<EditNews/>}/>
       <Route path='admin/listdonate' element={<ListDonate/>}/>
       <Route path='admin/donatedetail' element={<Donatedetail />}/>
-      <Route path='admin/detailproject' element={<DetailProject />}/>
+      <Route path='admin/detailproject/:id' element={<DetailProject />}/>
+      <Route path='admin/detailnews/:id' element={<DetailNews />}/>
 
 
       <Route path='staff/projects' element={<Staff_project/>}/>
-      <Route path='staff/detail' element={<Staff_detailproject/>}/>
+      <Route path='staff/detailproject/:id' element={<Staff_detailproject/>}/>
+      <Route path='staff/detailnews/:id' element={<Staff_detailNews/>}/>
       <Route path='staff/createproject' element={<Staff_createproject/>}/>
-      <Route path='staff/editproject' element={<Staff_editproduct/>}/>
+      <Route path='staff/editproject/:id' element={<Staff_editproject/>}/>
+      <Route path='staff/editnews/:id' element={<Staff_editnews/>}/>
+      <Route path='staff/news' element={<Staff_news/>}/>
 
 
 

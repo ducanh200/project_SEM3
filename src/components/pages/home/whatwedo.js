@@ -1,7 +1,21 @@
 import Layout from "../../layouts/layouts";
-import projects from "../../data/projects";
+import {useEffect, useState } from "react";
+import api from "../../../services/api";
+import url from "../../../services/url";
 
 function WhatWeDo() {
+    const [projects,setProjects] = useState([]);
+    const loadProjects = async ()=>{
+        try {
+            const rs = await api.get(url.PROJECT.LIST);
+            setProjects(rs.data);
+        } catch (error) {
+
+        }
+    }
+    useEffect(()=>{
+        loadProjects();
+    },[]);
     return (
         <Layout>
             <div className="content-wrapper">
@@ -45,14 +59,14 @@ function WhatWeDo() {
                                                 <div className="blog-item-holder">
                                                     <div className="greennature-isotope" data-type="blog" data-layout="fitRows">
                                                         <div className="clear"></div>
-                                                        {projects.map((project,index)=>(
-                                                        <div className="four columns">
+                                    {projects.map((project)=>(
+                                                        <div className="four columns" style={{maxHeight:"470px",minHeight:"470px"}}>
                                                         <div className="greennature-item greennature-blog-grid greennature-skin-box">
                                                             <div className="greennature-ux greennature-blog-grid-ux">
                                                                 <article id="post-852" className="post-852 post type-post status-publish format-standard has-post-thumbnail hentry category-fit-row tag-blog tag-life-style">
                                                                     <div className="greennature-standard-style">
-                                                                        <div className="greennature-blog-thumbnail">
-                                                                            <a href="#"> <img src={project.thumbnail_1} alt="" style={{minWidth:"100%",minHeight:"100%"}} width="400" height="300" /></a>
+                                                                        <div className="greennature-blog-thumbnail" style={{backgroundColor:"white"}}>
+                                                                            <a href="#"> <img src={project.thumbnail_1} alt="" style={{minWidth:"375px",minHeight:"280px",maxWidth:"375px",maxHeight:"280px",marginTop:"15px"}} /></a>
                                                                         </div>
 
                                                                         <div className="greennature-blog-grid-content">
@@ -66,19 +80,15 @@ function WhatWeDo() {
                                                                                 </div>
                                                                                 <div className="clear"></div>
                                                                             </header>
-                                                                            
                                                                             <div className="greennature-blog-content">{project.description}
                                                                                 <div className="clear"></div><a style={{textDecoration:"none",color:"#5dc269"}} href="#" className="excerpt-read-more">Read More</a></div>
                                                                         </div>
                                                                     </div>
                                                                 </article>
-                                                                
                                                             </div>
                                                         </div>
                                                     </div>
-                                                        ))}
-
-                                                        <div className="clear"></div>
+                                    ))}
                                                     </div>
                                                 </div>
                                                 <div className="greennature-pagination"><span aria-current='page' class='page-numbers current'>1</span>

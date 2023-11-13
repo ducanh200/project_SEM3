@@ -17,15 +17,13 @@ function Aside(){
                                  href="admin/news" aria-expanded="false"><i className="mdi me-2 mdi-table"></i><span
                                  className="hide-menu">News</span></a>
                                     </li>
-                        <li className="sidebar-item"> <a className="sidebar-link waves-effect waves-dark sidebar-link"
+                        <li className="sidebar-item"> 
+                        <a className="sidebar-link waves-effect waves-dark sidebar-link"
                          href="admin/listdonate" aria-expanded="false"><i className="mdi me-2 mdi-table"></i><span
-                         className="hide-menu">List Donate</span></a>
-                                    </li>
-
-
-
+                         className="hide-menu">List Donate</span>
+                        </a>
+                        </li>
                     </ul>
-
                 </nav>
             </div>
         </aside>
