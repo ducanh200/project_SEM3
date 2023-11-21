@@ -4,7 +4,26 @@ import LayoutAdmin from "../../layouts/layoutAdmin";
 function DetailProject(){
     return(
         <LayoutAdmin>
-                       <div class="container invoice">
+                       <div className="page-breadcrumb">
+                <div className="row align-items-center">
+                    <div className="col-md-6 col-8 align-self-center">
+                        <h3 className="page-title mb-0 p-0">Detail Project</h3>
+                        <div className="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol className="breadcrumb">
+                                    <li className="breadcrumb-item">Home</li>
+                                    <li className="breadcrumb-item active" aria-current="page">List Project</li>
+                                    <li className="breadcrumb-item active" aria-current="page">Detail Project</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="card" style={{marginTop: "20px", marginLeft: "20px", marginRight:"20px", marginBottom:"20px"}}>
+              <div className="card-bory">
+                <div class="container invoice" style={{width:"900px",height:"650px",border:"2px solid black", marginTop:"20px"}}>
               <div class="invoice-header">
                 <div class="ui left aligned grid">
                   <div class="row">
@@ -93,11 +112,13 @@ function DetailProject(){
                   </div>
 
                 </div>
-                <div className="more" style={{margin:"10px",backgroundColor:"#eef5f9", marginBottom: "15px"}}>
-                      <a href="#" className="btn btn-primary">Edit</a>
+                <div className="more" style={{margin:"10px", marginBottom: "15px"}}>
+                          <a href="admin/editproject" className="btn btn-primary">Edit</a>
 
-                      <a style={{marginLeft:"20px"}} href="#" className="btn btn-primary">Delete</a>
+                          <a style={{marginLeft:"20px"}} href="#" className="btn btn-primary">Delete</a>
 
+                      </div>
+                  </div>
                   </div>
               </div>
             </div>

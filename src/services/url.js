@@ -21,6 +21,7 @@ const url = {
     NEWS:{
         LIST: "/news",
         CREATE:"/news",
+        UPDATE:"/news",
         DETAIL:"/news/get-by-id",
         RELATEDS:"/news/relateds"
     },

@@ -7,13 +7,14 @@ function EditNews(){
         <div className="page-breadcrumb">
                 <div className="row align-items-center">
                     <div className="col-md-6 col-8 align-self-center">
-                        <h3 className="page-title mb-0 p-0">News</h3>
+                        <h3 className="page-title mb-0 p-0">Edit a New</h3>
                         <div className="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
                                     <li className="breadcrumb-item">Home</li>
-                                    <li className="breadcrumb-item active" aria-current="page">News</li>
-                                    <li className="breadcrumb-item active" aria-current="page">Edit a News</li>
+                                    <li className="breadcrumb-item active" aria-current="page">List New</li>
+                                    <li className="breadcrumb-item active" aria-current="page">Detail New</li>
+                                    <li className="breadcrumb-item active" aria-current="page">Edit a New</li>
                                 </ol>
                             </nav>
                         </div>
@@ -25,7 +26,7 @@ function EditNews(){
             <div className="card-bory">
                 <form action="" method="post" enctype="multipart/form-data" style={{width: "700px",float: "none",margin: "auto",height:"670px"}} >
                 <div class="form-group"  >
-                    <h2 style={{textAlign: "center", marginTop: "15px"}}>Edit A News</h2>
+                    <h2 style={{textAlign: "center", marginTop: "15px"}}>Edit A New</h2>
                 </div>
                 <div class="form-group" style={{marginTop: "20px"}} >
                     <div class="form-create" style={{float: "left",marginRight: "100px"}}>

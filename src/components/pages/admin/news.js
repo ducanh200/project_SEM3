@@ -20,23 +20,23 @@ function NewsList(){
     return(
         <LayoutAdmin>
             <div className="page-breadcrumb">
-                <div className="row align-items-center">
+            <div className="row align-items-center">
                     <div className="col-md-6 col-8 align-self-center">
-                        <h3 className="page-title mb-0 p-0">News</h3>
+                        <h3 className="page-title mb-0 p-0">List New</h3>
                         <div className="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><a href="#">news</a></li>
-                                    <li className="breadcrumb-item active" aria-current="page">list</li>
+                                    <li className="breadcrumb-item">Home</li>
+                                    <li className="breadcrumb-item active" aria-current="page">List New</li>
 
                                 </ol>
                             </nav>
                         </div>
                     </div>
                     <div className="col-md-6 col-4 align-self-center">
-                        <div className="text-end upgrade-btn">
+                    <div className="text-end upgrade-btn">
                             <a href="/admin/createnews"
-                                className="btn btn-danger d-none d-md-inline-block text-white">Create News</a>
+                                className="btn btn-danger d-none d-md-inline-block text-white">Create New</a>
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@ function NewsList(){
                             <div className="card-body">
                             <div style={{display: "flex", justifyContent: "space-between"}}>
                                     <h2 className="card-title">News</h2>
-                                    <a className="btn btn-primary" href="admin/createnews" style={{marginBottom: "auto"}}>Create</a>
+                                    
                                 </div>
                                 <div className="table-responsive">
                                     <table className="table user-table">
@@ -57,7 +57,7 @@ function NewsList(){
                                             <tr>
                                                 <th className="border-top-0">#</th>
                                                 <th className="border-top-0">Name</th>
-                                                <th className="border-top-0">Image</th>
+                                                <th className="border-top-0">Topic</th>
                                                 <th className="border-top-0">Country</th>
                                                 <th></th>
                                                 
@@ -68,7 +68,7 @@ function NewsList(){
                                             <tr>
                                                 <td>{news.id}</td>
                                                 <td>{news.name}</td>
-                                                <td><img src={news.thumbnail} /></td>
+                                                <td>{news.topic.name}</td>
                                                 <td>{news.country.name}</td>
                                                 <td><a href="" className="btn btn-primary">More</a></td>
                                                 

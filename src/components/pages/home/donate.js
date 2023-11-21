@@ -12,12 +12,12 @@ function Donate() {
                                 <div className="col-12 col-md-9 col-lg-7 col-xl-6">
                                     <div className="card" style={{ borderRadius: "15px", marginTop: "150px", marginBottom: "50px", width: "500px", marginLeft: "125px" }}>
                                         <div className="card-body p-5">
-                                            <h2 className="text-uppercase text-center" style={{marginBottom:"30px"}}>Donate</h2>
+                                            <h2 className="text-uppercase text-center" style={{marginBottom:"30px"}}>Donate for :</h2>
                                             <div>
                                                 <div className="greennature-item greennature-portfolio-item greennature-classic-portfolio">
                                                     <div className="greennature-ux greennature-classic-portfolio-ux">
                                                         <div className="portfolio-classic-content">
-                                                            <h3 className="portfolio-title" style={{marginLeft:"90px", marginBottom:"20px"}}><b style={{color:"green"}}>Elephant Sanctuary</b></h3>
+                                                            <h3 className="portfolio-title" style={{marginLeft:"90px", marginBottom:"20px"}}><a href="/projectdetail">Elephant Sanctuary</a></h3>
                                                         </div>
                                                         <div className="portfolio-thumbnail greennature-image"><img src="upload/shutterstock_133689230-400x300.jpg" alt="" width="400" height="300" /><span className="portfolio-overlay">&nbsp;</span><a className="portfolio-overlay-icon" href="#"><span className="portfolio-icon" ><i className="fa fa-link" ></i></span></a></div>
                                                     </div>

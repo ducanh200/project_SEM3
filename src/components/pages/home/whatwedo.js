@@ -5,6 +5,8 @@ import url from "../../../services/url";
 
 function WhatWeDo() {
     const [projects,setProjects] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const projectsPerPage = 6;
     const loadProjects = async ()=>{
         try {
             const rs = await api.get(url.PROJECT.LIST);
@@ -16,6 +18,11 @@ function WhatWeDo() {
     useEffect(()=>{
         loadProjects();
     },[]);
+
+    const startIndex = (currentPage - 1) * projectsPerPage;
+  const endIndex = startIndex + projectsPerPage;
+  const currentProjects = projects.slice(startIndex, endIndex);
+  
     return (
         <Layout>
             <div className="content-wrapper">
@@ -59,7 +66,7 @@ function WhatWeDo() {
                                                 <div className="blog-item-holder">
                                                     <div className="greennature-isotope" data-type="blog" data-layout="fitRows">
                                                         <div className="clear"></div>
-                                    {projects.map((project)=>(
+                                    {currentProjects.map((project)=>(
                                                         <div className="four columns" style={{maxHeight:"470px",minHeight:"470px"}}>
                                                         <div className="greennature-item greennature-blog-grid greennature-skin-box">
                                                             <div className="greennature-ux greennature-blog-grid-ux">
@@ -91,13 +98,24 @@ function WhatWeDo() {
                                     ))}
                                                     </div>
                                                 </div>
-                                                <div className="greennature-pagination"><span aria-current='page' class='page-numbers current'>1</span>
-                                                    <a class='page-numbers' href='page/2/index.html'>2</a>
-                                                    <a className="next page-numbers" href="page/2/index.html">Next &rsaquo;</a></div>
+                                                    
                                             </div>
                                             <div className="clear"></div>
                                         </div>
                                     </section>
+                                    <div className="greennature-pagination">
+                                                    
+                                    {Array.from({ length: Math.ceil(projects.length / projectsPerPage) }, (_, index) => (
+          <span
+            key={index + 1}
+            className={currentPage === index + 1 ? "page-numbers current" : "page-numbers"}
+            onClick={() => setCurrentPage(index + 1)}
+          >
+            {index + 1}
+          </span>
+        ))}
+                                                    
+                                                    </div>
                                 </div>
 
                                 <div className="clear"></div>

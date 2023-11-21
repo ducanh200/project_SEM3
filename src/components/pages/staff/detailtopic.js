@@ -1,19 +1,19 @@
-import LayoutAdmin from "../../layouts/layoutAdmin";
+import LayoutStaff from "../../layouts/layoutStaff";
 
 
-function DetailNew(){
+function Staff_detailtopic(){
     return(
-        <LayoutAdmin>
-              <div className="page-breadcrumb">
+        <LayoutStaff>
+          <div className="page-breadcrumb">
                 <div className="row align-items-center">
                     <div className="col-md-6 col-8 align-self-center">
-                        <h3 className="page-title mb-0 p-0">Detail New</h3>
+                        <h3 className="page-title mb-0 p-0">Detail Topic</h3>
                         <div className="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
                                     <li className="breadcrumb-item">Home</li>
-                                    <li className="breadcrumb-item active" aria-current="page">List New</li>
-                                    <li className="breadcrumb-item active" aria-current="page">Detail New</li>
+                                    <li className="breadcrumb-item active" aria-current="page">List Topic</li>
+                                    <li className="breadcrumb-item active" aria-current="page">Detail Topic</li>
                                 </ol>
                             </nav>
                         </div>
@@ -36,6 +36,7 @@ function DetailNew(){
                         <div class="right floated left aligned six wide column">
                           <div class="ui">
                             <div class="column two wide right floated">
+                              <img class="logo" src="https://scontent.fmel5-1.fna.fbcdn.net/v/t1.0-9/10358691_1595827163984651_6845505980791568353_n.png?_nc_cat=109&_nc_ohc=We4wwT6M2Q0AX8qY8-b&_nc_ht=scontent.fmel5-1.fna&oh=69bd30fc152063c470afd928919c8734&oe=5E94664A" />
                               <ul class="">
                                 <li><strong>RCJA Australia</strong></li>
                                 <li>Lorem Ipsum</li>
@@ -112,16 +113,16 @@ function DetailNew(){
 
                     </div>
                     <div className="more" style={{margin:"10px", marginBottom: "15px"}}>
-                          <a href="admin/editnews" className="btn btn-primary">Edit</a>
+                          <a href="staff/edittopic" className="btn btn-primary">Edit</a>
 
                           <a style={{marginLeft:"20px"}} href="#" className="btn btn-primary">Delete</a>
 
                       </div>
                   </div>
                 </div>
-              </div>
+             </div>
             </div>
-        </LayoutAdmin>
+        </LayoutStaff>
     )
 }
-export default DetailNew;
+export default Staff_detailtopic;

@@ -4,8 +4,27 @@ import LayoutAdmin from "../../layouts/layoutAdmin";
 function Donatedetail(){
     return(
         <LayoutAdmin>
-            <div class="container invoice" style={{width:"900px",height:"650px",border:"1px solid black"}}>
-              <div class="invoice-header">
+            <div className="page-breadcrumb">
+                <div className="row align-items-center">
+                    <div className="col-md-6 col-8 align-self-center">
+                        <h3 className="page-title mb-0 p-0">Detail Donate</h3>
+                        <div className="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol className="breadcrumb">
+                                    <li className="breadcrumb-item">Home</li>
+                                    <li className="breadcrumb-item active" aria-current="page">List Donate</li>
+                                    <li className="breadcrumb-item active" aria-current="page">Detail Donate</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="card" style={{marginTop: "20px", marginLeft: "20px", marginRight:"20px", marginBottom:"20px"}}>
+              <div className="card-bory">
+                <div class="container invoice" style={{width:"900px",height:"650px",border:"2px solid black", marginTop:"20px"}}>
+                  <div class="invoice-header">
                 <div class="ui left aligned grid">
                   <div class="row">
                     <div class="left floated left aligned six wide column">
@@ -84,7 +103,8 @@ function Donatedetail(){
 
               </tfoot>
                     </table>
-
+                    </div>
+                </div> 
                   </div>
                 </div>             
               </div>

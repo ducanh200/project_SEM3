@@ -7,17 +7,11 @@ import Topic from "./topic";
 
 
 function NewsAll(){
-    const [news,setNews] = useState([]);
     const [topics,setTopic] = useState([]);
-
-    const loadNews = async ()=>{
-        try {
-            const rs = await api.get(url.NEWS.LIST);
-            setNews(rs.data);
-        } catch (error) {
-
-        }
-    }
+    const [news,setNews] = useState([]);
+    const [filteredProjects, setFilteredProjects] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const newsPerPage = 6;
     const loadTopics = async ()=>{
         try {
             const rs = await api.get(url.TOPIC.LIST);
@@ -26,10 +20,39 @@ function NewsAll(){
 
         }
     }
+    const loadNews = async ()=>{
+        try {
+            const rs = await api.get(url.NEWS.LIST);
+            setNews(rs.data);
+        } catch (error) {
+
+        }
+    }
+
+    const loadProjectsByTopicId = async (topicId) => {
+        try {
+          const rs = await api.get(url.TOPIC.DETAIL + `?topic_id=${topicId}`);
+          setFilteredProjects(rs.data);
+        } catch (error) {
+          console.error(`Error loading projects for topic ${topicId}:`, error);
+        }
+      };
     useEffect(()=>{
-        loadNews();
         loadTopics();
+        loadNews();
     },[]);
+
+    useEffect(() => {
+        // Lấy topic_id của topic muốn lấy projects
+        const topicIdToFilter = 1;
+    
+        // Gọi hàm để lấy danh sách projects dựa trên topic_id
+        loadProjectsByTopicId(topicIdToFilter);
+      }, [topics]);
+
+      const startIndex = (currentPage - 1) * newsPerPage;
+    const endIndex = startIndex + newsPerPage;
+    const currentNews = news.slice(startIndex, endIndex);
     return(
         <Layout>
         <div className="greennature-page-title-wrapper header-style-5-title-wrapper">
@@ -46,14 +69,28 @@ function NewsAll(){
                 <div className="with-sidebar-wrapper">
                     <div className="with-sidebar-container container">
                         <div className="with-sidebar-left eight columns">
-                            <div className="with-sidebar-content twelve columns">
+                        <div style={{marginTop:"50px",marginBottom:"0"}} className="filter clearfix gdlr-core-filterer-wrap gdlr-core-js  gdlr-core-item-pdlr gdlr-core-style-text gdlr-core-center-align">
+                                                <ul>
+                                                    <li><a href="/news" style={{ textDecoration: 'none'}} data-filter="*">All</a></li>
+                                                    <li>
+                                                    {topics.map((topic)=>(
+                                                        <li ><NavLink to={`/topicfilternews/${topic.id}`}>
+                                                        <a style={{ textDecoration: 'none' }} data-filter=".class3" key={topic.id}>
+                                                          {topic.name}
+                                                        </a>
+                                                      </NavLink></li>
+                                                    ))}
+                                                   </li>
+                                                </ul>
+                                            </div> 
+                            <div style={{marginTop:"-50px"}} className="with-sidebar-content twelve columns">
                                 <section id="content-section-1">
                                     <div className="section-container container">
                                         <div className="blog-item-wrapper">
                                             <div className="blog-item-holder">
                                                 <div className="greennature-isotope" data-type="blog" data-layout="fitRows">
                                                     <div className="clear"></div>
-                                                    {news.map(news=>(
+                                                    {currentNews.map(news=>(
                                                     <div className="six columns">
                                                         <div className="greennature-item greennature-blog-grid greennature-skin-box">
                                                             <div className="greennature-ux greennature-blog-grid-ux">
@@ -89,13 +126,23 @@ function NewsAll(){
 
                                                 </div>
                                             </div>
-                                            <div className="greennature-pagination"><span aria-current='page' class='page-numbers current'>1</span>
-                                                <a class='page-numbers' href='page/2/index.html'>2</a>
-                                                <a className="next page-numbers" href="page/2/index.html">Next &rsaquo;</a></div>
+                                           
                                         </div>
                                         <div className="clear"></div>
                                     </div>
                                 </section>
+                                <div style={{marginRight:"35px"}} className="greennature-pagination">
+                                            {Array.from({ length: Math.ceil(news.length / newsPerPage) }, (_, index) => (
+                                            <span
+                                                key={index + 1}
+                                                className={currentPage === index + 1 ? "page-numbers current" : "page-numbers"}
+                                                onClick={() => setCurrentPage(index + 1)}
+                                            >
+                                                {index + 1}
+                                            </span>
+                                            ))}
+
+                                            </div>
                             </div>
 
                             <div className="clear"></div>

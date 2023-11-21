@@ -1,19 +1,20 @@
+
 import LayoutAdmin from "../../layouts/layoutAdmin";
 
 
-function DetailNew(){
+function Admin_Detailtopic(){
     return(
         <LayoutAdmin>
               <div className="page-breadcrumb">
                 <div className="row align-items-center">
                     <div className="col-md-6 col-8 align-self-center">
-                        <h3 className="page-title mb-0 p-0">Detail New</h3>
+                        <h3 className="page-title mb-0 p-0">Detail Topic</h3>
                         <div className="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
                                     <li className="breadcrumb-item">Home</li>
-                                    <li className="breadcrumb-item active" aria-current="page">List New</li>
-                                    <li className="breadcrumb-item active" aria-current="page">Detail New</li>
+                                    <li className="breadcrumb-item active" aria-current="page">List Topic</li>
+                                    <li className="breadcrumb-item active" aria-current="page">Detail Topic</li>
                                 </ol>
                             </nav>
                         </div>
@@ -112,7 +113,7 @@ function DetailNew(){
 
                     </div>
                     <div className="more" style={{margin:"10px", marginBottom: "15px"}}>
-                          <a href="admin/editnews" className="btn btn-primary">Edit</a>
+                          <a href="admin/edittopic" className="btn btn-primary">Edit</a>
 
                           <a style={{marginLeft:"20px"}} href="#" className="btn btn-primary">Delete</a>
 
@@ -124,4 +125,4 @@ function DetailNew(){
         </LayoutAdmin>
     )
 }
-export default DetailNew;
+export default Admin_Detailtopic;

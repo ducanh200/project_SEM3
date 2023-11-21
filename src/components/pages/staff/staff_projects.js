@@ -22,14 +22,33 @@ function Staff_project(){
     },[]);
     return(
         <LayoutStaff>
-            <Breadcrumb_staff/>
+            <div className="page-breadcrumb">
+                <div className="row align-items-center">
+                    <div className="col-md-6 col-8 align-self-center">
+                        <h3 className="page-title mb-0 p-0">List Project</h3>
+                        <div className="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol className="breadcrumb">
+                                    <li className="breadcrumb-item">Home</li>
+                                    <li className="breadcrumb-item active" aria-current="page">List Project</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    <div className="col-md-6 col-4 align-self-center">
+                        <div className="text-end upgrade-btn">
+                            <a href="staff/createproject"
+                                className="btn btn-danger d-none d-md-inline-block text-white">Create Project</a>
+                        </div>
+                    </div>
+                </div>
+        </div>
             <div className="container-fluid" style={{ marginTop: "25px"}}>
                 <div className="row">
                     <div className="col-sm-12">
                         <div className="card">
                             <div className="card-body">
-                                <h4 className="card-title">Basic Table</h4>
-                                <h6 className="card-subtitle">Add class <code>.table</code></h6>
+                            <h4 className="card-title">Projects</h4>
                                 <div className="table-responsive">
                                     <table className="table user-table">
                                         <thead>

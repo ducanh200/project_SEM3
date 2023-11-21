@@ -20,14 +20,14 @@ function Projects(){
     return(
         <LayoutAdmin>
             <div className="page-breadcrumb">
-                <div className="row align-items-center">
+            <div className="row align-items-center">
                     <div className="col-md-6 col-8 align-self-center">
-                        <h3 className="page-title mb-0 p-0">Project</h3>
+                        <h3 className="page-title mb-0 p-0">List Project</h3>
                         <div className="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><a href="#">Project</a></li>
-                                    <li className="breadcrumb-item active" aria-current="page">Project</li>
+                                    <li className="breadcrumb-item">Home</li>
+                                    <li className="breadcrumb-item active" aria-current="page">List Project</li>
 
                                 </ol>
                             </nav>
@@ -49,7 +49,7 @@ function Projects(){
                             <div className="card-body">
                                 <div style={{display: "flex", justifyContent: "space-between"}}>
                                     <h2 className="card-title">Projects</h2>
-                                    <a className="btn btn-primary" href="admin/createproject" style={{marginBottom: "auto"}}>Create</a>
+                                    
                                 </div>
                                 <div className="table-responsive">
                                     <table className="table user-table">
@@ -59,7 +59,7 @@ function Projects(){
                                                 <th className="border-top-0">Name</th>
                                                 <th className="border-top-0">Image</th>
                                                 <th className="border-top-0">Country</th>
-                                                <th className="border-top-0">Fund</th>
+                                                <th className="border-top-0">More</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -69,7 +69,7 @@ function Projects(){
                                             <tr>
                                                 <td>{project.id}</td>
                                                 <td>{project.name}</td>
-                                                <td><img src="{project.thumbnail}" /></td>
+                                                <td><img src={project.thumbnail_1} style={{maxWidth:"200px",maxHeight:"200px"}} /></td>
                                                 <td>{project.country.name}</td>
                                                 <td><a className="btn btn-primary" href="">More</a></td>
                                             </tr>

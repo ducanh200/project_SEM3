@@ -1,31 +1,40 @@
+import Header from "../../layouts/admin/header";
 import LayoutAdmin from "../../layouts/layoutAdmin";
-
-
-function ListDonate(){
+import Breadcrumb from "../../layouts/admin/breadcrumb";
+function Admin_Country(){
     return(
         <LayoutAdmin>
             <div className="page-breadcrumb">
                 <div className="row align-items-center">
                     <div className="col-md-6 col-8 align-self-center">
-                        <h3 className="page-title mb-0 p-0">List Donate</h3>
+                        <h3 className="page-title mb-0 p-0">List Country</h3>
                         <div className="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
                                     <li className="breadcrumb-item">Home</li>
-                                    <li className="breadcrumb-item active" aria-current="page">List Donate</li>
+                                    <li className="breadcrumb-item active" aria-current="page">List Country</li>
+
                                 </ol>
                             </nav>
                         </div>
                     </div>
+                    <div className="col-md-6 col-4 align-self-center">
+                        <div className="text-end upgrade-btn">
+                            <a href="/admin/createcountry"
+                                className="btn btn-danger d-none d-md-inline-block text-white">Create Country</a>
+                        </div>
+                    </div>
                 </div>
-            </div>            
-            
+            </div>    
+
             <div className="container-fluid" style={{ marginTop: "25px"}}>
                 <div className="row">
                     <div className="col-sm-12">
                         <div className="card">
                             <div className="card-body">
-                            <h4 className="card-title">Donate</h4>
+                            <div style={{display: "flex", justifyContent: "space-between"}}>
+                                    <h2 className="card-title">Countries</h2>
+                                </div>
                                 <div className="table-responsive">
                                     <table className="table user-table">
                                         <thead>
@@ -84,4 +93,4 @@ function ListDonate(){
         </LayoutAdmin>
     )
 }
-export default ListDonate;
+export default Admin_Country;

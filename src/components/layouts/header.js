@@ -42,7 +42,7 @@ function Header() {
                             <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
                 
                     </div>
-                            <a  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" className="greennature-donate-button greennature-lb-payment" style={{ textDecoration: 'none' }}><span className="greennature-button-overlay"></span><span className="greennature-button-donate-text">Donate</span></a>
+                            <a  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" className="greennature-donate-button greennature-lb-payment" style={{ textDecoration: 'none' }}><span className="greennature-button-overlay"></span><span className="greennature-button-donate-text">LOGIN</span></a>
                             
 
                         </nav>
@@ -61,33 +61,45 @@ function Header() {
                             <div  class="modal-dialog" style={{border:"0px"}}>
                                 <div style={{backgroundColor:"#dddddd"}} class="modal-content">
                                 <div class="modal-header" style={{borderBottom:"0"}}>
-                                    <h2><b style={{color:"rgb(93, 194, 105)",marginLeft:"90px"}}>Donation with paypal</b></h2>
+                                    <h2><b style={{color:"rgb(93, 194, 105)",marginLeft:"190px"}}>LOGIN</b></h2>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div style={{background:"rgba(255, 255, 255, 0)"}} class="modal-body">
                                     <form style={{textAlign:"left",background:"rgba(255, 255, 255, 0)"}}>
-                                        <div class="mb-3">
+                                        {/* <div class="mb-3">
                                         <label for="recipient-name" class="col-form-label" ><b style={{color:"#b0b0b0",marginLeft:"32px"}}>NAME<span style={{color:"red"}}>*</span></b></label>
                                         <input required style={{width:"400px",marginLeft:"7%",borderRadius:"0",background:"rgba(255, 255, 255, 0.4)"}} placeholder="Your Name" type="text" class="form-control" id="name"/>
-                                    </div>
+                                    </div> */}
                                     <div class="mb-3">
                                         <label for="message-text" class="col-form-label"><b style={{color:"#b0b0b0",marginLeft:"32px"}}>EMAIL<span style={{color:"red"}}>*</span></b></label>
                                         <input required style={{width:"400px",marginLeft:"7%",borderRadius:"0",background:"rgba(255, 255, 255, 0.4)"}} placeholder="Your Email" type="text" class="form-control" id="email"></input>
                                     </div>
+
+                                    <div class="mb-3">
+                                        <label for="message-text" class="col-form-label"><b style={{color:"#b0b0b0",marginLeft:"32px"}}>PASSWORD<span style={{color:"red"}}>*</span></b></label>
+                                        <input required style={{width:"400px",marginLeft:"7%",borderRadius:"0",background:"rgba(255, 255, 255, 0.4)"}} placeholder="Your Password" type="password" class="form-control" id="password"></input>
+                                    </div>
                                     
-                                    <div  class="greennature-payment-amount">
+                                    {/* <div  class="greennature-payment-amount">
                                     <div  class="greennature-payment-amount-head" style={{color:"#b0b0b0",marginLeft:"32px"}}>Donate for project or fund ! <span style={{color:"red"}}>*</span></div>                     
                                     <input style={{width:"400px",background:"rgba(255, 255, 255, 0.4)",marginLeft:"32px"}}  class="greennature-payment-price-fill" type="text" placeholder="Your Amount(USD)" />
                                     <input class="greennature-payment-price" type="hidden" name="amount" value="10" />
                                     <div className="style-method" style={{marginTop:"20px"}}>
                                     
-                        </div>
-                    </div>
-                                    </form>
-                                </div>
+                                    </div>
+                                    </div> */}
+
                                 <div class="modal-footer" style={{borderTop:"0"}}>
-                                    <button style={{width:"300px",borderRadius:"20px",marginRight:"17.75%",backgroundColor:"rgb(93, 194, 105)",height:"50px",marginTop:"-20px"}} type="button" class="btn btn-primary">Donate</button>
+                                    <button style={{width:"200px",borderRadius:"20px",marginRight:"25.75%",backgroundColor:"rgb(93, 194, 105)",height:"40px"}} type="button" class="btn btn-primary"><h3>LOGIN</h3></button>
                                 </div>
+
+                                    </form>
+
+                                    <div className="abcde">
+                                        <h4 style={{textAlign:"center"}}>You haven't account?/<a href="/register">Register here</a></h4>
+                                    </div>
+                                </div>
+                                
 
                             </div>
                             </div>

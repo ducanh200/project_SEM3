@@ -95,17 +95,6 @@ function Footer() {
                 </div>
                 <div className="clear"></div>
             </div>
-
-            <div className="copyright-wrapper">
-                <div className="copyright-container container">
-                    <div className="copyright-left">
-                        <a href="#"><i className="greennature-icon fa fa-facebook" style={{verticalAlign: "middle",color: "#bbbbbb",fontSize: "20px"}}></i></a> <a href="#"><i className="greennature-icon fa fa-twitter" style={{verticalAlign: "middle",color: "#bbbbbb",fontSize: "20px"}}></i></a> <a href="#"><i className="greennature-icon fa fa-dribbble" style={{verticalAlign: "middle",color: "#bbbbbb",fontSize: "20px"}}></i></a> <a href="#"><i className="greennature-icon fa fa-pinterest" style={{verticalAlign: "middle",color: "#bbbbbb",fontSize: "20px"}}></i></a> <a href="#"><i className="greennature-icon fa fa-google-plus" style={{verticalAlign: "middle",color: "#bbbbbb",fontSize: "20px"}}></i></a> <a href="#"><i className="greennature-icon fa fa-instagram" style={{verticalAlign: "middle",color: "#bbbbbb",fontSize: "20px"}}></i></a>
-                    </div>
-                    <div className="copyright-right">
-                       <a target="_blank" href="https://www.templateshub.net">Templates Hub</a> </div>
-                    <div className="clear"></div>
-                </div>
-            </div>
         </footer>
     )
 }
