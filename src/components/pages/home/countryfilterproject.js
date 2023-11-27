@@ -5,12 +5,12 @@ import url from "../../../services/url";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-function Topic_filter_news (){
+function Country_filter_project (){
     const { id } = useParams();
     const [topics, setTopic] = useState([]);
-    const [countries, setCountries] = useState([]);
-    const [filteredNews, setFilteredNews] = useState([]);
-    
+    const [countries,setCountries] = useState([]);
+    const [filteredProjects, setFilteredProjects] = useState([]);
+
   
     const loadTopics = async () => {
       try {
@@ -20,80 +20,47 @@ function Topic_filter_news (){
         console.error("Error loading topics:", error);
       }
     };
-    const loadCountries = async () => {
+  
+    const loadCountries = async ()=>{
         try {
-          const rs = await api.get(url.COUNTRY.LIST);
-          setCountries(rs.data);
+            const rs = await api.get(url.COUNTRY.LIST);
+            setCountries(rs.data);
         } catch (error) {
-          console.error("Error loading countries:", error);
-        }
-      };
-    const loadNewsByTopicId = async (topicId) => {
-        try {
-          // Lấy danh sách tất cả các dự án
-          const allNews = await api.get(url.NEWS.LIST);
-      
-          // Lọc chỉ những dự án có topic_id giống với topicId
-          const filteredNews = allNews.data.filter(news => news.topic_id === topicId);
-      
-          // Cập nhật state với danh sách dự án đã lọc
-          setFilteredNews(filteredNews);
-        } catch (error) {
-          console.error(`Error loading news for topic ${topicId}:`, error);
-        }
-      };
 
-      const loadNewsByCountryId = async (countryId) => {
+        }
+    }
+    const loadProjectsByCountryId = async (countryId) => {
         try {
-          // Lấy danh sách tất cả các dự án
-          const allNews = await api.get(url.NEWS.LIST);
+          const allProjects = await api.get(url.PROJECT.LIST);
       
-          // Lọc chỉ những dự án có topic_id giống với topicId
-          const filteredNews = allNews.data.filter(news => news.country_id === countryId);
+          const filteredProjects = allProjects.data.filter(project => project.country_id === countryId);
       
-          // Cập nhật state với danh sách dự án đã lọc
-          setFilteredNews(filteredNews);
+          setFilteredProjects(filteredProjects);
         } catch (error) {
           console.error(`Error loading news for topic ${countryId}:`, error);
         }
       };
     useEffect(() => {
         loadCountries();
-        loadTopics();
+      loadTopics();
     }, []);
-  
   
     useEffect(() => {
       // Lấy topic_id từ URL và chuyển đổi thành số nguyên
       const topicIdToFilter = parseInt(id, 10);
   
       // Kiểm tra xem topicIdToFilter có trong danh sách topics không
-      const selectedTopic = topics.find((topic) => topic.id === topicIdToFilter);
+      const selectedTopic = countries.find((country) => country.id === topicIdToFilter);
   
       if (selectedTopic) {
         // Nếu có, gọi hàm để lấy danh sách news dựa trên topic_id
-        loadNewsByTopicId(topicIdToFilter);
+        loadProjectsByCountryId(topicIdToFilter);
       } else {
         // Nếu không, xử lý trường hợp không tìm thấy chủ đề
         console.warn(`Topic with id ${topicIdToFilter} not found.`);
       }
-    }, [id, topics]);
+    }, [id, countries]);
 
-    useEffect(() => {
-        // Lấy topic_id từ URL và chuyển đổi thành số nguyên
-        const topicIdToFilter = parseInt(id, 10);
-    
-        // Kiểm tra xem topicIdToFilter có trong danh sách topics không
-        const selectedTopic = countries.find((country) => country.id === topicIdToFilter);
-    
-        if (selectedTopic) {
-          // Nếu có, gọi hàm để lấy danh sách news dựa trên topic_id
-          loadNewsByCountryId(topicIdToFilter);
-        } else {
-          // Nếu không, xử lý trường hợp không tìm thấy chủ đề
-          console.warn(`Topic with id ${topicIdToFilter} not found.`);
-        }
-      }, [id, countries]);
   
     return(
         <Layout>
@@ -136,10 +103,10 @@ function Topic_filter_news (){
                                         <div className="portfolio-item-wrapper type-classic-portfolio" data-ajax="https://demo.goodlayers.com/greennature/wp-admin/admin-ajax.php">  
                                         <div className="filter clearfix gdlr-core-filterer-wrap gdlr-core-js  gdlr-core-item-pdlr gdlr-core-style-text gdlr-core-center-align">
                                                 <ul>
-                                                    <li><a href="/news" style={{ textDecoration: 'none'}}   data-filter="*">All</a></li>
+                                                    <li><a href="/topic" style={{ textDecoration: 'none'}}   data-filter="*">All</a></li>
                                                     <li>
                                                     {topics.map((topic)=>(
-                                                        <li ><NavLink to={`/topicfilternews/${topic.id}`}>
+                                                        <li ><NavLink to={`/topicfilterproject/${topic.id}`}>
                                                         <a style={{ textDecoration: 'none' }} data-filter=".class3" key={topic.id}>
                                                           {topic.name}
                                                         </a>
@@ -151,19 +118,19 @@ function Topic_filter_news (){
                                             <div className="portfolio-item-holder  greennature-portfolio-column-2">
                                                 <div className="greennature-isotope filter-container" data-type="portfolio" data-layout="masonry">
                                                     <div className="clear"></div>
-                                                    {filteredNews.map(news=>(
+                                                    {filteredProjects.map(project=>(
                                                     <div className="six columns class1">
                                                         <div className="greennature-item greennature-portfolio-item greennature-classic-portfolio">
                                                             <div className="greennature-ux greennature-classic-portfolio-ux">
-                                                                <div className="portfolio-thumbnail greennature-image"><img src={news.thumbnail} style={{minWidth:"100%",minHeight:"280px",maxWidth:"100%",maxHeight:"280px",marginTop:"15px"}} alt="" width="400" height="300" /><span className="portfolio-overlay">&nbsp;</span><a className="portfolio-overlay-icon" href="upload/shutterstock_161515241.jpg" data-rel="fancybox"><span className="portfolio-icon" ><i className="fa fa-search" ></i></span></a></div>
+                                                                <div className="portfolio-thumbnail greennature-image"><img src={project.thumbnail_1} style={{minWidth:"100%",minHeight:"280px",maxWidth:"100%",maxHeight:"280px",marginTop:"15px"}} alt="" width="400" height="300" /><span className="portfolio-overlay">&nbsp;</span><a className="portfolio-overlay-icon" href="upload/shutterstock_161515241.jpg" data-rel="fancybox"><span className="portfolio-icon" ><i className="fa fa-search" ></i></span></a></div>
                                                                 <div className="portfolio-classic-content">
-                                                                    <h3 className="portfolio-title"><a  href="#"  >{news.name}</a></h3>
+                                                                    <h3 className="portfolio-title"><a  href="#"  >{project.name}</a></h3>
                                                                     <div className="greennature-portfolio-info">
-                                                                        <div className="portfolio-info portfolio-tag"><a href="#" rel="tag">{news?.topic?.name}</a><span className="sep">,</span> <a href="#" rel="tag">{news?.country?.name}</a></div>
+                                                                        <div className="portfolio-info portfolio-tag"><a href="#" rel="tag">{project?.topic?.name}</a><span className="sep">,</span> <a href="#" rel="tag">{project?.country?.name}</a></div>
                                                                         <div className="clear"></div>
                                                                     </div>
-                                                                    <div className="portfolio-excerpt">{news.description}
-                                                                        <div className="clear"></div><NavLink to={`/newstdetail/${news.id}`}><a style={{marginTop:"10px"}} href="/detainews" className="btn btn-primary">Read More</a></NavLink></div></div>
+                                                                    <div className="portfolio-excerpt">{project.description}
+                                                                        <div className="clear"></div><NavLink to={`/projectdetail/${project.id}`}><a style={{marginTop:"10px"}} href="/detainews" className="btn btn-primary">Read More</a></NavLink></div></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -189,7 +156,7 @@ function Topic_filter_news (){
                                     <ul>
                                         {topics.map(topic=>(
                                         <li>
-                                            <NavLink to={`/topicfilternews/${topic.id}`}>
+                                            <NavLink to={`/topicfilterproject/${topic.id}`}>
                                             <a style={{color:"green"}}>{topic.name}</a>
                                             </NavLink>
                                         </li>
@@ -203,7 +170,7 @@ function Topic_filter_news (){
                                     <ul>
                                         {countries.map(country=>(
                                         <li>
-                                            <NavLink to={`/countryfilternews/${country.id}`}>
+                                            <NavLink to={`/countryfilterproject/${country.id}`}>
                                             <a style={{color:"green"}}>{country.name}</a>
                                             </NavLink>
                                         </li>
@@ -225,4 +192,4 @@ function Topic_filter_news (){
         
     )
 }
-export default Topic_filter_news;
+export default Country_filter_project;

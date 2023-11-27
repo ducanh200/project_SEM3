@@ -18,7 +18,7 @@ function Breadcumb(){
                                             <div className="about-us-content greennature-skin-content">
                                                 <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Maecenas faucibus mollis interdum. Donec ullamcorper nulla non metus auctor fringilla.</p>
                                                 <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                                            </div><a className="about-us-read-more greennature-button" href="#">Read More</a></div>
+                                            </div><a className="about-us-read-more greennature-button" href="/news">Read More</a></div>
                                         <div className="clear"></div>
                                     </div>
                                 </div>

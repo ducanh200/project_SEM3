@@ -38,7 +38,8 @@ function AboutUs() {
                                                     <h3 className="column-service-title">Parturient Pellque</h3>
                                                     <div className="column-service-content greennature-skin-content">
                                                         <p>Donec ullamcorper nulla non metus auctor fringilla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam quis risus eget.</p>
-                                                    </div><a className="column-service-read-more" href="#">Read More</a></div>
+                                                    </div>
+                                                    </div>
                                             </div>
                                         </div>
                                     </div>
@@ -50,7 +51,8 @@ function AboutUs() {
                                                     <h3 className="column-service-title">Vulputate Ipsum Cursus</h3>
                                                     <div className="column-service-content greennature-skin-content">
                                                         <p>Donec ullamcorper nulla non metus auctor fringilla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam quis risus eget.</p>
-                                                    </div><a className="column-service-read-more" href="#">Read More</a></div>
+                                                    </div>
+                                                    </div>
                                             </div>
                                         </div>
                                     </div>
@@ -62,7 +64,8 @@ function AboutUs() {
                                                     <h3 className="column-service-title">Parturient Pellque</h3>
                                                     <div className="column-service-content greennature-skin-content">
                                                         <p>Donec ullamcorper nulla non metus auctor fringilla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam quis risus eget.</p>
-                                                    </div><a className="column-service-read-more" href="#">Read More</a></div>
+                                                    </div>
+                                                    </div>
                                             </div>
                                         </div>
                                     </div>

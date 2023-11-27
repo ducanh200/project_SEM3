@@ -5,12 +5,22 @@ import url from "../../../services/url";
 import { NavLink } from "react-router-dom";
 function Topic (){
     const [topics,setTopic] = useState([]);
+    const [countries,setCountries] = useState([]);
     const [projects,setProject] = useState([]);
     const [filteredProjects, setFilteredProjects] = useState([]);
+
     const loadTopics = async ()=>{
         try {
             const rs = await api.get(url.TOPIC.LIST);
             setTopic(rs.data);
+        } catch (error) {
+
+        }
+    }
+    const loadCountries = async ()=>{
+        try {
+            const rs = await api.get(url.COUNTRY.LIST);
+            setCountries(rs.data);
         } catch (error) {
 
         }
@@ -24,17 +34,26 @@ function Topic (){
         }
     }
 
-    const loadProjectsByTopicId = async (topicId) => {
+        const loadProjectsByTopicId = async (topicId) => {
+            try {
+            const rs = await api.get(url.TOPIC.DETAIL + `?topic_id=${topicId}`);
+            setFilteredProjects(rs.data);
+            } catch (error) {
+            console.error(`Error loading projects for topic ${topicId}:`, error);
+            }
+        };
+      const loadProjectsByCountryId = async (countryId) => {
         try {
-          const rs = await api.get(url.TOPIC.DETAIL + `?topic_id=${topicId}`);
+          const rs = await api.get(url.COUNTRY.DETAIL + `?topic_id=${countryId}`);
           setFilteredProjects(rs.data);
         } catch (error) {
-          console.error(`Error loading projects for topic ${topicId}:`, error);
+          console.error(`Error loading projects for topic ${countryId}:`, error);
         }
       };
     useEffect(()=>{
         loadTopics();
         loadProject();
+        loadCountries();
     },[]);
 
     useEffect(() => {
@@ -43,7 +62,16 @@ function Topic (){
     
         // Gọi hàm để lấy danh sách projects dựa trên topic_id
         loadProjectsByTopicId(topicIdToFilter);
+
       }, [topics]);
+      useEffect(() => {
+        // Lấy topic_id của topic muốn lấy projects
+        const topicIdToFilter = 1;
+    
+        // Gọi hàm để lấy danh sách projects dựa trên topic_id
+        loadProjectsByCountryId(topicIdToFilter);
+        
+      }, [countries]);
     return(
         <Layout>
         <div className="content-wrapper">
@@ -56,7 +84,7 @@ function Topic (){
                                         <div className="greennature-item-title-wrapper greennature-item  greennature-center greennature-extra-large ">
                                             <div className="greennature-item-title-container container">
                                                 <div className="greennature-item-title-head">
-                                                    <h3 className="greennature-item-title greennature-skin-title greennature-skin-border">Environmental topics</h3>
+                                                    <h3 className="greennature-item-title greennature-skin-title greennature-skin-border">filter</h3>
                                                     <div className="greennature-item-title-caption greennature-skin-info">Condimentum Ipsum Vestibulum</div>
                                                     <div className="clear"></div>
                                                 </div>
@@ -134,83 +162,30 @@ function Topic (){
                         <div className="greennature-sidebar greennature-right-sidebar four columns">
                             <div className="greennature-item-start-content sidebar-right-item">
                                 <div id="recent-posts-3" className="widget widget_recent_entries greennature-item greennature-widget">
-                                    <h3 className="greennature-widget-title">Recent Posts</h3>
+                                    <h3 className="greennature-widget-title">All Topics</h3>
                                     <div className="clear"></div>
                                     <ul>
+                                        {topics.map(topic=>(
                                         <li>
-                                            <a href="#">Sem Porta Mollis Parturi</a>
+                                            <NavLink to={`/topicfilterproject/${topic.id}`}>
+                                            <a style={{color:"green"}}>{topic.name}</a>
+                                            </NavLink>
                                         </li>
-                                        <li>
-                                            <a href="#">Nullam Lorem Mattis Purus</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Nibh Sem Sit Ullamcorper</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Donec luctus imperdiet</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Magna pars studiorum</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Sedial eiusmod tempor</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Eiusmod tempor incidunt</a>
-                                        </li>
+                                        ))}
                                     </ul>
                                 </div>
-                                <div id="gdlr-recent-portfolio2-widget-4" className="widget widget_gdlr-recent-portfolio2-widget greennature-item greennature-widget">
-                                    <h3 className="greennature-widget-title">Recent Works</h3>
-                                    <div className="clear"></div>
-                                    <div className="greennature-recent-port2-widget">
-                                        <div className="recent-port-widget-thumbnail">
-                                            <a href="#"><img src="upload/shutterstock_161515241-150x150.jpg" alt="" width="150" height="150" /></a>
-                                        </div>
-                                        <div className="recent-port-widget-thumbnail">
-                                            <a href="#"><img src="upload/shutterstock_133689230-150x150.jpg" alt="" width="150" height="150" /></a>
-                                        </div>
-                                        <div className="recent-port-widget-thumbnail">
-                                            <a href="#"><img src="upload/shutterstock_53600221-150x150.jpg" alt="" width="150" height="150" /></a>
-                                        </div>
-                                        <div className="recent-port-widget-thumbnail">
-                                            <a href="#"><img src="upload/shutterstock_124871620-150x150.jpg" alt="" width="150" height="150" /></a>
-                                        </div>
-                                        <div className="recent-port-widget-thumbnail">
-                                            <a href="#"><img src="upload/shutterstock_281995004-150x150.jpg" alt="" width="150" height="150" /></a>
-                                        </div>
-                                        <div className="recent-port-widget-thumbnail">
-                                            <a href="#"><img src="upload/shutterstock_256181956-150x150.jpg" alt="" width="150" height="150" /></a>
-                                        </div>
-                                        <div className="recent-port-widget-thumbnail">
-                                            <a href="#"><img src="upload/shutterstock_104475683-150x150.jpg" alt="" width="150" height="150" /></a>
-                                        </div>
-                                        <div className="recent-port-widget-thumbnail">
-                                            <a href="#"><img src="upload/shutterstock_278672942-150x150.jpg" alt="" width="150" height="150" /></a>
-                                        </div>
-                                        <div className="clear"></div>
-                                    </div>
-                                </div>
+                                
                                 <div id="categories-3" className="widget widget_categories greennature-item greennature-widget">
-                                    <h3 className="greennature-widget-title">Categories</h3>
+                                <h3 className="greennature-widget-title">All Countries</h3>
                                     <div className="clear"></div>
                                     <ul>
-                                        <li className="cat-item cat-item-2"><a href="#">Aside</a> (1)
+                                        {countries.map(country=>(
+                                        <li>
+                                            <NavLink to={`/topicfilterproject/${country.id}`}>
+                                            <a style={{color:"green"}}>{country.name}</a>
+                                            </NavLink>
                                         </li>
-                                        <li className="cat-item cat-item-3"><a href="#">Audio</a> (1)
-                                        </li>
-                                        <li className="cat-item cat-item-4"><a href="#">Blog</a> (13)
-                                        </li>
-                                        <li className="cat-item cat-item-5"><a href="#">Fit Row</a> (9)
-                                        </li>
-                                        <li className="cat-item cat-item-6"><a href="#">Life Style</a> (4)
-                                        </li>
-                                        <li className="cat-item cat-item-8"><a href="#">Post Slider</a> (3)
-                                        </li>
-                                        <li className="cat-item cat-item-9"><a href="#">Quote</a> (1)
-                                        </li>
-                                        <li className="cat-item cat-item-10"><a href="#">Video</a> (1)
-                                        </li>
+                                        ))}
                                     </ul>
                                 </div>
                             </div>

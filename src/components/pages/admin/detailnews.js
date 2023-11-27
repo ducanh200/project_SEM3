@@ -1,126 +1,116 @@
 import LayoutAdmin from "../../layouts/layoutAdmin";
+import api from "../../../services/api";
+import url from "../../../services/url";
+import {useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 
 function DetailNew(){
+  const navigate = useNavigate();
+  const {id} = useParams();
+  const [news,setNews] = useState([]);
+  const loadNews = async ()=>{
+      try {
+          const rs = await api.get(url.NEWS.DETAIL+`?id=${id}`);
+          setNews(rs.data);
+      } catch (error) {
+          console.error("Error loading news:", error);
+      }
+  }
+
+  useEffect(()=>{
+      loadNews();
+  },[]);
+
+  const handleDelete = async (newsId) => {
+    try {
+      alert('You sure want delete this news?');
+      const response = await api.delete(`${url.NEWS.DELETE}?id=${newsId}`);
+      console.log("Delete Response:", response.data);
+
+
+    navigate("/admin/news");
+    } catch (error) {
+      console.error("Error deleting project:", error);
+    }
+  };
     return(
         <LayoutAdmin>
-              <div className="page-breadcrumb">
-                <div className="row align-items-center">
-                    <div className="col-md-6 col-8 align-self-center">
-                        <h3 className="page-title mb-0 p-0">Detail New</h3>
-                        <div className="d-flex align-items-center">
-                            <nav aria-label="breadcrumb">
-                                <ol className="breadcrumb">
-                                    <li className="breadcrumb-item">Home</li>
-                                    <li className="breadcrumb-item active" aria-current="page">List New</li>
-                                    <li className="breadcrumb-item active" aria-current="page">Detail New</li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
+             <div class="container invoice">
+        <div class="invoice-header">
+          <div class="ui left aligned grid">
+            <div class="row">
+              <div class="left floated left aligned six wide column">
+                <div class="ui">
+                  <h1 class = "ui header pageTitle">Detail <small class = "ui sub header">{news.name}</small></h1>
+                  <h4 class="ui sub header invDetails">Date Created: {news.created_at}</h4>
                 </div>
-            </div>
+              </div>
+              <div class="right floated left aligned six wide column">
+                <div class="ui">
+                  <div class="column two wide right floated">
+                    <img class="logo" src={news.thumbnail} style={{minWidth:"500px",maxWidth:"500px",minHeight:"350px",maxHeight:"350px"}} alt="" width="1280" height="853"/>
 
-            <div className="card" style={{marginTop: "20px", marginLeft: "20px", marginRight:"20px", marginBottom:"20px"}}>
-              <div className="card-bory">
-                <div class="container invoice" style={{width:"900px",height:"650px",border:"2px solid black", marginTop:"20px"}}>
-                  <div class="invoice-header">
-                    <div class="ui left aligned grid">
-                      <div class="row">
-                        <div class="left floated left aligned six wide column">
-                          <div class="ui">
-                            <h1 class = "ui header pageTitle">Invoice <small class = "ui sub header">With Credit</small></h1>
-                            <h4 class="ui sub header invDetails">NO: 554775/R1 | Date: 01/01/2015</h4>
-                          </div>
-                        </div>
-                        <div class="right floated left aligned six wide column">
-                          <div class="ui">
-                            <div class="column two wide right floated">
-                              <ul class="">
-                                <li><strong>RCJA Australia</strong></li>
-                                <li>Lorem Ipsum</li>
-                                <li>2 Alliance Lane VIC</li>
-                                <li>info@rcja.com</li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="ui segment cards">
-                    <div class="ui segment itemscard">
-                      <div class="content">
-                        <table class="ui celled table">
-                          <thead>
-                            <tr>
-                              <th>Item / Details</th>
-                              <th class="text-center colfix">Unit Cost</th>
-                              <th class="text-center colfix">Sum Cost</th>
-                              <th class="text-center colfix">Discount</th>
-                              <th class="text-center colfix">Tax</th>
-                              <th class="text-center colfix">Total</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>
-                                Lorem Ipsum Dolor
-                                <br></br>
-                                <small class="text-muted">The best lorem in town, try it now or leave forever</small>
-                              </td>
-                              <td class="text-right">
-                                <span class="mono">$1,000.00</span>
-                                <br></br>
-                                <small class="text-muted">Before Tax</small>
-                              </td>
-                              <td class="text-right">
-                                <span class="mono">$18,000.00</span>
-                                <br></br>
-                                <small class="text-muted">18 Units</small>
-                              </td>
-                              <td class="text-right">
-                                <span class="mono">- $1,800.00</span>
-                                <br></br>
-                                <small class="text-muted">Special -10%</small>
-                              </td>
-                              <td class="text-right">
-                                <span class="mono">+ $3,240.00</span>
-                                <br></br>
-                                <small class="text-muted">VAT 20%</small>
-                              </td>
-                              <td class="text-right">
-                                <strong class="mono">$19,440.00</strong>
-                                <br></br>
-                                <small class="text-muted mono">$16,200.00</small>
-                              </td>
-                            </tr>
-
-
-                          </tbody>
-                        <tfoot class="full-width">
-
-                  </tfoot>
-                        </table>
-
-                      </div>
-                    </div>
-                    <div class="ui card">
-                      <div class="content" style={{height:"125px",border:"0px solid black",background:"#eef5f9"}}>
-                          <p>Mô tả </p>
-                      </div>
-
-                    </div>
-                    <div className="more" style={{margin:"10px", marginBottom: "15px"}}>
-                          <a href="admin/editnews" className="btn btn-primary">Edit</a>
-
-                          <a style={{marginLeft:"20px"}} href="#" className="btn btn-primary">Delete</a>
-
-                      </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div class="ui segment cards">
+          <div class="ui segment itemscard">
+            <div class="content">
+              <table class="ui celled table">
+              <thead>
+                  <tr>
+                    <th className="text-center colfix">City</th>
+                    <th className="text-center colfix">Country</th>
+                    <th className="text-center colfix">Topic</th>
+                    <th className="text-center colfix">Created At</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                    {news.city}
+                    </td>
+                    <td>
+                    {news?.country?.name}
+                    </td>
+                    <td>
+                    {news?.topic?.name}
+                    </td>
+                    <td>
+                    {news.created_at}
+                    </td>
+
+                  </tr>
+
+
+                </tbody>
+
+              </table>
+
+            </div>
+          </div>
+          <div class="ui card">
+            <div class="content" style={{height:"125px",border:"1px solid black"}}>
+                <p>{news.description}</p>
+            </div>
+
+          </div>
+          <div className="more" style={{margin:"10px",backgroundColor:"#eef5f9", marginBottom: "15px"}}>
+          <NavLink to={`/admin/editnews/${news.id}`}><a href="" className="btn btn-primary">Edit</a></NavLink>
+
+          <a style={{marginLeft:"20px"}}onClick={() => handleDelete(news.id)} className="btn btn-primary">Delete</a>
+
+            </div>
+        </div>
+      </div>
         </LayoutAdmin>
     )
 }

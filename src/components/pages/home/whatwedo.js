@@ -2,6 +2,7 @@ import Layout from "../../layouts/layouts";
 import {useEffect, useState } from "react";
 import api from "../../../services/api";
 import url from "../../../services/url";
+import { NavLink } from "react-router-dom";
 
 function WhatWeDo() {
     const [projects,setProjects] = useState([]);
@@ -88,7 +89,9 @@ function WhatWeDo() {
                                                                                 <div className="clear"></div>
                                                                             </header>
                                                                             <div className="greennature-blog-content">{project.description}
-                                                                                <div className="clear"></div><a style={{textDecoration:"none",color:"#5dc269"}} href="#" className="excerpt-read-more">Read More</a></div>
+                                                                                <div className="clear"></div>
+                                                                                <NavLink to={`/projectdetail/${project.id}`}><a className="btn btn-primary">Read More</a></NavLink>
+                                                                                </div>
                                                                         </div>
                                                                     </div>
                                                                 </article>

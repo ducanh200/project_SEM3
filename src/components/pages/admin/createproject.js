@@ -284,7 +284,7 @@ function CreateProjects(){
                 <input
                     onChange={handleInputChange}
                     name="begin"
-                    type="date"
+                    type="datetime-local"
                     className="form-control"
                     style={{
                     width: "200px",
@@ -299,7 +299,7 @@ function CreateProjects(){
                 <input
                     onChange={handleInputChange}
                     name="finish"
-                    type="date" 
+                    type="datetime-local" 
                     className="form-control"
                     style={{
                     width: "200px",

@@ -4,18 +4,31 @@ import api from "../../../services/api";
 import url from "../../../services/url";
 import { NavLink } from "react-router-dom";
 import Topic from "./topic";
+import { useParams } from "react-router-dom";
 
 
 function NewsAll(){
+    const { id } = useParams();
+    const [countries, setCountries] = useState([]);
     const [topics,setTopic] = useState([]);
     const [news,setNews] = useState([]);
     const [filteredProjects, setFilteredProjects] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const newsPerPage = 6;
+    const [filteredNews, setFilteredNews] = useState([]);
+
     const loadTopics = async ()=>{
         try {
             const rs = await api.get(url.TOPIC.LIST);
             setTopic(rs.data);
+        } catch (error) {
+
+        }
+    }
+    const loadCountries = async ()=>{
+        try {
+            const rs = await api.get(url.COUNTRY.LIST);
+            setCountries(rs.data);
         } catch (error) {
 
         }
@@ -29,49 +42,59 @@ function NewsAll(){
         }
     }
 
-    const loadProjectsByTopicId = async (topicId) => {
-        try {
-          const rs = await api.get(url.TOPIC.DETAIL + `?topic_id=${topicId}`);
-          setFilteredProjects(rs.data);
-        } catch (error) {
-          console.error(`Error loading projects for topic ${topicId}:`, error);
-        }
-      };
+   
     useEffect(()=>{
         loadTopics();
         loadNews();
+        loadCountries();
     },[]);
-
-    useEffect(() => {
-        // Lấy topic_id của topic muốn lấy projects
-        const topicIdToFilter = 1;
-    
-        // Gọi hàm để lấy danh sách projects dựa trên topic_id
-        loadProjectsByTopicId(topicIdToFilter);
-      }, [topics]);
 
       const startIndex = (currentPage - 1) * newsPerPage;
     const endIndex = startIndex + newsPerPage;
     const currentNews = news.slice(startIndex, endIndex);
+
     return(
         <Layout>
-        <div className="greennature-page-title-wrapper header-style-5-title-wrapper">
-            <div className="greennature-page-title-overlay"></div>
-            <div className="greennature-page-title-container container">
-                <h1 className="greennature-page-title">News</h1>
-                <span className="greennature-page-caption">All News</span>
-            </div>
-        </div>
         <div className="content-wrapper">
+                <div className="greennature-content">
+                    <div className="with-sidebar-wrapper">
+                        <section id="content-section-1">
+                            <div className="greennature-parallax-wrapper greennature-background-image gdlr-show-all greennature-skin-dark-skin" id="greennature-parallax-wrapper-1" data-bgspeed="0" style={{backgroundImage: "url('upload/about-title-bg.jpg')", paddingTop: "260px", paddingBottom: "140px" }}>
+                                <div className="container">
+                                    <div className="greennature-title-item">
+                                        <div className="greennature-item-title-wrapper greennature-item  greennature-center greennature-extra-large ">
+                                            <div className="greennature-item-title-container container">
+                                                <div className="greennature-item-title-head">
+                                                    <h3 className="greennature-item-title greennature-skin-title greennature-skin-border">Environmental topics</h3>
+                                                    <div className="greennature-item-title-caption greennature-skin-info">Condimentum Ipsum Vestibulum</div>
+                                                    <div className="clear"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="clear"></div>
+                                    <div className="clear"></div>
+                                </div>
+                            </div>
+                            <div className="clear"></div>
+                        </section>
+                    </div>
+                </div>
+                    <div className="clear">
+                    </div>
+            </div>
+        <div className="content-wrapper" style={{backgroundColor: "#ffffff"}}>
             <div className="greennature-content">
-
-
                 <div className="with-sidebar-wrapper">
                     <div className="with-sidebar-container container">
                         <div className="with-sidebar-left eight columns">
-                        <div style={{marginTop:"50px",marginBottom:"0"}} className="filter clearfix gdlr-core-filterer-wrap gdlr-core-js  gdlr-core-item-pdlr gdlr-core-style-text gdlr-core-center-align">
+                            <div className="with-sidebar-content twelve columns">
+                                <section id="content-section-1">
+                                    <div className="section-container container">
+                                        <div className="portfolio-item-wrapper type-classic-portfolio" data-ajax="https://demo.goodlayers.com/greennature/wp-admin/admin-ajax.php">  
+                                        <div className="filter clearfix gdlr-core-filterer-wrap gdlr-core-js  gdlr-core-item-pdlr gdlr-core-style-text gdlr-core-center-align">
                                                 <ul>
-                                                    <li><a href="/news" style={{ textDecoration: 'none'}} data-filter="*">All</a></li>
+                                                    <li><a href="/news" style={{ textDecoration: 'none'}}   data-filter="*">All</a></li>
                                                     <li>
                                                     {topics.map((topic)=>(
                                                         <li ><NavLink to={`/topicfilternews/${topic.id}`}>
@@ -82,67 +105,35 @@ function NewsAll(){
                                                     ))}
                                                    </li>
                                                 </ul>
-                                            </div> 
-                            <div style={{marginTop:"-50px"}} className="with-sidebar-content twelve columns">
-                                <section id="content-section-1">
-                                    <div className="section-container container">
-                                        <div className="blog-item-wrapper">
-                                            <div className="blog-item-holder">
-                                                <div className="greennature-isotope" data-type="blog" data-layout="fitRows">
+                                            </div>  
+                                            <div className="portfolio-item-holder  greennature-portfolio-column-2">
+                                                <div className="greennature-isotope filter-container" data-type="portfolio" data-layout="masonry">
                                                     <div className="clear"></div>
-                                                    {currentNews.map(news=>(
-                                                    <div className="six columns">
-                                                        <div className="greennature-item greennature-blog-grid greennature-skin-box">
-                                                            <div className="greennature-ux greennature-blog-grid-ux">
-                                                                <article id="post-852" className="post-852 post type-post status-publish format-standard has-post-thumbnail hentry category-fit-row tag-blog tag-life-style">
-                                                                    <div className="greennature-standard-style">
-                                                                        <div className="greennature-blog-thumbnail">
-                                                                            <a> <img src={news.thumbnail} style={{minWidth:"100%",minHeight:"280px",maxWidth:"100%",maxHeight:"280px",marginTop:"15px"}}  alt="" width="400" height="300" /></a>
-                                                                        </div>
-
-                                                                        <div className="greennature-blog-grid-content">
-                                                                            <header className="post-header">
-                                                                                <h3 className="greennature-blog-title"><a href="#">{news.name}</a></h3>
-
-                                                                                <div className="greennature-blog-info">
-                                                                                    <div className="blog-info blog-date greennature-skin-info"><i className="fa fa-clock-o"></i><a href="#">{news.created_at}</a></div>
-                                                                                    <div className="blog-info blog-comment greennature-skin-info"><i className="fa fa-comment-o"></i><a href="##respond">2 <span className="greennature-tail" >{news?.country?.name}</span></a></div>
-                                                                                    <div className="clear"></div>
-                                                                                </div>
-                                                                                <div className="clear"></div>
-                                                                            </header>
-
-                                                                            <div className="greennature-blog-content">{news.description}
-                                                                                <div className="clear"></div>
-                                                                                <NavLink to={`/newsdetail/${news.id}`}><a style={{marginTop:"10px"}} className="btn btn-primary">Read More</a></NavLink></div>
-                                                                        </div>
+                                                    {news.map(news=>(
+                                                    <div className="six columns class1">
+                                                        <div className="greennature-item greennature-portfolio-item greennature-classic-portfolio">
+                                                            <div className="greennature-ux greennature-classic-portfolio-ux">
+                                                                <div className="portfolio-thumbnail greennature-image"><img src={news.thumbnail} style={{minWidth:"100%",minHeight:"280px",maxWidth:"100%",maxHeight:"280px",marginTop:"15px"}} alt="" width="400" height="300" /><span className="portfolio-overlay">&nbsp;</span><a className="portfolio-overlay-icon" href="upload/shutterstock_161515241.jpg" data-rel="fancybox"><span className="portfolio-icon" ><i className="fa fa-search" ></i></span></a></div>
+                                                                <div className="portfolio-classic-content">
+                                                                    <h3 className="portfolio-title"><a  href="#"  >{news.name}</a></h3>
+                                                                    <div className="greennature-portfolio-info">
+                                                                        <div className="portfolio-info portfolio-tag"><a href="#" rel="tag">{news?.topic?.name}</a><span className="sep">,</span> <a href="#" rel="tag">{news?.country?.name}</a></div>
+                                                                        <div className="clear"></div>
                                                                     </div>
-                                                                </article>
+                                                                    <div className="portfolio-excerpt">{news.description}
+                                                                        <div className="clear"></div><NavLink to={`/newstdetail/${news.id}`}><a style={{marginTop:"10px"}} href="/detainews" className="btn btn-primary">Read More</a></NavLink></div></div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    ))
-                                                    }
-
+                                                    ))}
                                                 </div>
+                                                <div className="clear"></div>
                                             </div>
-                                           
+                                            <div className="greennature-pagination greennature-ajax"><span className="page-numbers current" data-paged="1">1</span> <a className="page-numbers" data-paged="2">2</a> <a className="next page-numbers" data-paged="2"> Next &rsaquo;</a> </div>
                                         </div>
                                         <div className="clear"></div>
                                     </div>
                                 </section>
-                                <div style={{marginRight:"35px"}} className="greennature-pagination">
-                                            {Array.from({ length: Math.ceil(news.length / newsPerPage) }, (_, index) => (
-                                            <span
-                                                key={index + 1}
-                                                className={currentPage === index + 1 ? "page-numbers current" : "page-numbers"}
-                                                onClick={() => setCurrentPage(index + 1)}
-                                            >
-                                                {index + 1}
-                                            </span>
-                                            ))}
-
-                                            </div>
                             </div>
 
                             <div className="clear"></div>
@@ -150,66 +141,32 @@ function NewsAll(){
 
                         <div className="greennature-sidebar greennature-right-sidebar four columns">
                             <div className="greennature-item-start-content sidebar-right-item">
-                               
-                                <div id="text-2" className="widget widget_text greennature-item greennature-widget">
-                                    <h3 className="greennature-widget-title">Text Widget</h3>
+                                <div id="recent-posts-3" className="widget widget_recent_entries greennature-item greennature-widget">
+                                <h3 className="greennature-widget-title">All Topics</h3>
                                     <div className="clear"></div>
-                                    <div className="textwidget">Sed posuere consectetur est at lobortis. Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit.</div>
-                                </div>
-                                <div id="gdlr-recent-portfolio-widget-2" className="widget widget_gdlr-recent-portfolio-widget greennature-item greennature-widget">
-                                    <h3 className="greennature-widget-title">Recent Works</h3>
-                                    <div className="clear"></div>
-                                    <div className="greennature-recent-port-widget">
-                                        <div className="recent-post-widget">
-                                            <div className="recent-post-widget-thumbnail">
-                                                <a href="#"><img src="upload/shutterstock_161515241-150x150.jpg" alt="" width="150" height="150" /></a>
-                                            </div>
-                                            <div className="recent-post-widget-content">
-                                                <div className="recent-post-widget-title"><a href="#">Wind Energy</a></div>
-                                                <div className="recent-post-widget-info">
-                                                    <div className="blog-info blog-date greennature-skin-info"><i className="fa fa-clock-o"></i><a href="#">04 Dec 2013</a></div>
-                                                    <div className="clear"></div>
-                                                </div>
-                                            </div>
-                                            <div className="clear"></div>
-                                        </div>
-                                        <div className="recent-post-widget">
-                                            <div className="recent-post-widget-thumbnail">
-                                                <a href="#"><img src="upload/shutterstock_133689230-150x150.jpg" alt="" width="150" height="150" /></a>
-                                            </div>
-                                            <div className="recent-post-widget-content">
-                                                <div className="recent-post-widget-title"><a href="#">Elephant Sanctuary</a></div>
-                                                <div className="recent-post-widget-info">
-                                                    <div className="blog-info blog-date greennature-skin-info"><i className="fa fa-clock-o"></i><a href="#">04 Dec 2013</a></div>
-                                                    <div className="clear"></div>
-                                                </div>
-                                            </div>
-                                            <div className="clear"></div>
-                                        </div>
-                                        <div className="recent-post-widget">
-                                            <div className="recent-post-widget-thumbnail">
-                                                <a href="#"><img src="upload/shutterstock_53600221-150x150.jpg" alt="" width="150" height="150" /></a>
-                                            </div>
-                                            <div className="recent-post-widget-content">
-                                                <div className="recent-post-widget-title"><a href="#">Conservation Volunteer</a></div>
-                                                <div className="recent-post-widget-info">
-                                                    <div className="blog-info blog-date greennature-skin-info"><i className="fa fa-clock-o"></i><a href="#">04 Dec 2013</a></div>
-                                                    <div className="clear"></div>
-                                                </div>
-                                            </div>
-                                            <div className="clear"></div>
-                                        </div>
-                                        <div className="clear"></div>
-                                    </div>
+                                    <ul>
+                                        {topics.map(topic=>(
+                                        <li>
+                                            <NavLink to={`/topicfilternews/${topic.id}`}>
+                                            <a style={{color:"green"}}>{topic.name}</a>
+                                            </NavLink>
+                                        </li>
+                                        ))}
+                                    </ul>
                                 </div>
                                 
-                                <div id="tag_cloud-2" className="widget widget_tag_cloud greennature-item greennature-widget">
-                                    <h3 className="greennature-widget-title">Topic</h3>
+                                <div id="categories-3" className="widget widget_categories greennature-item greennature-widget">
+                                <h3 className="greennature-widget-title">All Countries</h3>
                                     <div className="clear"></div>
-                                    <div className="tagcloud">
-                                        {topics.map(topic=>(
-                                        <a href="#" className="btn btn-primary" style={{fontSize: "8pt"}} aria-label="Animal (1 item)">{topic.name}</a>
+                                    <ul>
+                                        {countries.map(country=>(
+                                        <li>
+                                            <NavLink to={`/countryfilternews/${country.id}`}>
+                                            <a style={{color:"green"}}>{country.name}</a>
+                                            </NavLink>
+                                        </li>
                                         ))}
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -219,8 +176,8 @@ function NewsAll(){
 
 
             </div>
+          
             <div className="clear"></div>
-        </div>
         </div>
         </Layout>
     )

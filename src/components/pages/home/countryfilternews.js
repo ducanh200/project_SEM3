@@ -5,7 +5,7 @@ import url from "../../../services/url";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-function Topic_filter_news (){
+function Country_filter_news (){
     const { id } = useParams();
     const [topics, setTopic] = useState([]);
     const [countries, setCountries] = useState([]);
@@ -28,30 +28,13 @@ function Topic_filter_news (){
           console.error("Error loading countries:", error);
         }
       };
-    const loadNewsByTopicId = async (topicId) => {
-        try {
-          // Lấy danh sách tất cả các dự án
-          const allNews = await api.get(url.NEWS.LIST);
-      
-          // Lọc chỉ những dự án có topic_id giống với topicId
-          const filteredNews = allNews.data.filter(news => news.topic_id === topicId);
-      
-          // Cập nhật state với danh sách dự án đã lọc
-          setFilteredNews(filteredNews);
-        } catch (error) {
-          console.error(`Error loading news for topic ${topicId}:`, error);
-        }
-      };
 
       const loadNewsByCountryId = async (countryId) => {
         try {
-          // Lấy danh sách tất cả các dự án
           const allNews = await api.get(url.NEWS.LIST);
       
-          // Lọc chỉ những dự án có topic_id giống với topicId
           const filteredNews = allNews.data.filter(news => news.country_id === countryId);
       
-          // Cập nhật state với danh sách dự án đã lọc
           setFilteredNews(filteredNews);
         } catch (error) {
           console.error(`Error loading news for topic ${countryId}:`, error);
@@ -59,41 +42,24 @@ function Topic_filter_news (){
       };
     useEffect(() => {
         loadCountries();
-        loadTopics();
+      loadTopics();
     }, []);
-  
   
     useEffect(() => {
       // Lấy topic_id từ URL và chuyển đổi thành số nguyên
-      const topicIdToFilter = parseInt(id, 10);
+      const countryIdToFilter = parseInt(id, 10);
   
       // Kiểm tra xem topicIdToFilter có trong danh sách topics không
-      const selectedTopic = topics.find((topic) => topic.id === topicIdToFilter);
+      const selectedCountry = countries.find((country) => country.id === countryIdToFilter);
   
-      if (selectedTopic) {
+      if (selectedCountry) {
         // Nếu có, gọi hàm để lấy danh sách news dựa trên topic_id
-        loadNewsByTopicId(topicIdToFilter);
+        loadNewsByCountryId(countryIdToFilter);
       } else {
         // Nếu không, xử lý trường hợp không tìm thấy chủ đề
-        console.warn(`Topic with id ${topicIdToFilter} not found.`);
+        console.warn(`Topic with id ${countryIdToFilter} not found.`);
       }
-    }, [id, topics]);
-
-    useEffect(() => {
-        // Lấy topic_id từ URL và chuyển đổi thành số nguyên
-        const topicIdToFilter = parseInt(id, 10);
-    
-        // Kiểm tra xem topicIdToFilter có trong danh sách topics không
-        const selectedTopic = countries.find((country) => country.id === topicIdToFilter);
-    
-        if (selectedTopic) {
-          // Nếu có, gọi hàm để lấy danh sách news dựa trên topic_id
-          loadNewsByCountryId(topicIdToFilter);
-        } else {
-          // Nếu không, xử lý trường hợp không tìm thấy chủ đề
-          console.warn(`Topic with id ${topicIdToFilter} not found.`);
-        }
-      }, [id, countries]);
+    }, [id, countries]);
   
     return(
         <Layout>
@@ -225,4 +191,4 @@ function Topic_filter_news (){
         
     )
 }
-export default Topic_filter_news;
+export default Country_filter_news;

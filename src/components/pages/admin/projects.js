@@ -4,7 +4,12 @@ import Breadcrumb from "../../layouts/admin/breadcrumb";
 import {useEffect, useState } from "react";
 import api from "../../../services/api";
 import url from "../../../services/url";
+import { NavLink } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+
 function Projects(){
+    const { id } = useParams();
     const [projects,setProjects] = useState([]);
     const loadProjects = async ()=>{
         try {
@@ -14,9 +19,23 @@ function Projects(){
 
         }
     }
+    
     useEffect(()=>{
         loadProjects();
     },[]);
+
+    const handleDelete = async (projectId) => {
+        try {
+            alert('You sure want delete this project?')
+          const response = await api.delete(`${url.PROJECT.DELETE}?id=${projectId}`);
+          console.log("Delete Response:", response.data);
+
+
+          loadProjects();
+        } catch (error) {
+          console.error("Error deleting project:", error);
+        }
+      };
     return(
         <LayoutAdmin>
             <div className="page-breadcrumb">
@@ -60,6 +79,7 @@ function Projects(){
                                                 <th className="border-top-0">Image</th>
                                                 <th className="border-top-0">Country</th>
                                                 <th className="border-top-0">More</th>
+                                                <th className="border-top-0">Delete</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -71,7 +91,8 @@ function Projects(){
                                                 <td>{project.name}</td>
                                                 <td><img src={project.thumbnail_1} style={{maxWidth:"200px",maxHeight:"200px"}} /></td>
                                                 <td>{project.country.name}</td>
-                                                <td><a className="btn btn-primary" href="">More</a></td>
+                                                <td><NavLink to={`/admin/detailproject/${project.id}`}><a className="btn btn-primary" href="">More</a></NavLink></td>
+                                                <td><a className="btn btn-primary" onClick={() => handleDelete(project.id)}>Delete</a></td>
                                             </tr>
                                             ))}
                                         </tbody>

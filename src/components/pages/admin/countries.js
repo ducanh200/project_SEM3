@@ -1,7 +1,40 @@
 import Header from "../../layouts/admin/header";
 import LayoutAdmin from "../../layouts/layoutAdmin";
 import Breadcrumb from "../../layouts/admin/breadcrumb";
+import api from "../../../services/api";
+import url from "../../../services/url";
+import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+
 function Admin_Country(){
+    const [countries, setCountries] = useState([]);
+
+    const loadCountries = async () => {
+        try {
+          const rs = await api.get(url.COUNTRY.LIST);
+          if (rs.data) {
+            setCountries(rs.data);
+          }
+        } catch (error) {
+          console.error("Error loading topics:", error);
+        }
+      };
+      useEffect(() => {
+        loadCountries();
+      }, []); 
+
+      const handleDelete = async (countryId) => {
+        try {
+            alert('You sure want delete this topic?');
+          const response = await api.delete(`${url.COUNTRY.DELETE}?id=${countryId}`);
+          console.log("Delete Response:", response.data);
+
+  
+        loadCountries();
+        } catch (error) {
+          console.error("Error deleting project:", error);
+        }
+      };
     return(
         <LayoutAdmin>
             <div className="page-breadcrumb">
@@ -36,52 +69,25 @@ function Admin_Country(){
                                     <h2 className="card-title">Countries</h2>
                                 </div>
                                 <div className="table-responsive">
-                                    <table className="table user-table">
+                                <table className="table user-table">
                                         <thead>
                                             <tr>
                                                 <th className="border-top-0">#</th>
-                                                <th className="border-top-0">First Name</th>
-                                                <th className="border-top-0">Last Name</th>
-                                                <th className="border-top-0">Username</th>
+                                                <th className="border-top-0">Topic</th>
+                                                <th className="border-top-0">More</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {countries.map(country=>(
                                             <tr>
-                                                <td>1</td>
-                                                <td>Deshmukh</td>
-                                                <td>Prohaska</td>
-                                                <td>@Genelia</td>
+                                                <td>{country.id}</td>
+                                                <td>{country.name}</td>
+                                                <td>
+                                                <NavLink to={`/admin/editcountry/${country.id}`}><a style={{marginRight:"10px"}}  className="btn btn-primary">Edit</a></NavLink>
+                                                <a onClick={() => handleDelete(country.id)} style={{marginLeft:"10px"}} className="btn btn-primary">Delete</a>
+                                                </td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Deshmukh</td>
-                                                <td>Gaylord</td>
-                                                <td>@Ritesh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Sanghani</td>
-                                                <td>Gusikowski</td>
-                                                <td>@Govinda</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Roshan</td>
-                                                <td>Rogahn</td>
-                                                <td>@Hritik</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Joshi</td>
-                                                <td>Hickle</td>
-                                                <td>@Maruti</td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Nigam</td>
-                                                <td>Eichmann</td>
-                                                <td>@Sonu</td>
-                                            </tr>
+                                            ))}
                                         </tbody>
                                     </table>
                                 </div>

@@ -8,7 +8,9 @@ import { useParams } from "react-router-dom";
 function Topic_filter_project (){
     const { id } = useParams();
     const [topics, setTopic] = useState([]);
+    const [countries,setCountries] = useState([]);
     const [filteredProjects, setFilteredProjects] = useState([]);
+
   
     const loadTopics = async () => {
       try {
@@ -19,22 +21,28 @@ function Topic_filter_project (){
       }
     };
   
+    const loadCountries = async ()=>{
+        try {
+            const rs = await api.get(url.COUNTRY.LIST);
+            setCountries(rs.data);
+        } catch (error) {
+
+        }
+    }
     const loadProjectsByTopicId = async (topicId) => {
         try {
-          // Lấy danh sách tất cả các dự án
           const allProjects = await api.get(url.PROJECT.LIST);
       
-          // Lọc chỉ những dự án có topic_id giống với topicId
           const filteredProjects = allProjects.data.filter(project => project.topic_id === topicId);
       
-          // Cập nhật state với danh sách dự án đã lọc
           setFilteredProjects(filteredProjects);
         } catch (error) {
           console.error(`Error loading news for topic ${topicId}:`, error);
         }
       };
-  
+      
     useEffect(() => {
+        loadCountries();
       loadTopics();
     }, []);
   
@@ -53,6 +61,7 @@ function Topic_filter_project (){
         console.warn(`Topic with id ${topicIdToFilter} not found.`);
       }
     }, [id, topics]);
+
   
     return(
         <Layout>
@@ -121,7 +130,7 @@ function Topic_filter_project (){
                                                                         <div className="portfolio-info portfolio-tag"><a href="#" rel="tag">{project?.topic?.name}</a><span className="sep">,</span> <a href="#" rel="tag">{project?.country?.name}</a></div>
                                                                         <div className="clear"></div>
                                                                     </div>
-                                                                    <div className="portfolio-excerpt">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Vivamus sagittis...
+                                                                    <div className="portfolio-excerpt">{project.description}
                                                                         <div className="clear"></div><NavLink to={`/projectdetail/${project.id}`}><a style={{marginTop:"10px"}} href="/detainews" className="btn btn-primary">Read More</a></NavLink></div></div>
                                                             </div>
                                                         </div>
@@ -143,83 +152,30 @@ function Topic_filter_project (){
                         <div className="greennature-sidebar greennature-right-sidebar four columns">
                             <div className="greennature-item-start-content sidebar-right-item">
                                 <div id="recent-posts-3" className="widget widget_recent_entries greennature-item greennature-widget">
-                                    <h3 className="greennature-widget-title">Recent Posts</h3>
+                                <h3 className="greennature-widget-title">All Topics</h3>
                                     <div className="clear"></div>
                                     <ul>
+                                        {topics.map(topic=>(
                                         <li>
-                                            <a href="#">Sem Porta Mollis Parturi</a>
+                                            <NavLink to={`/topicfilterproject/${topic.id}`}>
+                                            <a style={{color:"green"}}>{topic.name}</a>
+                                            </NavLink>
                                         </li>
-                                        <li>
-                                            <a href="#">Nullam Lorem Mattis Purus</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Nibh Sem Sit Ullamcorper</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Donec luctus imperdiet</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Magna pars studiorum</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Sedial eiusmod tempor</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Eiusmod tempor incidunt</a>
-                                        </li>
+                                        ))}
                                     </ul>
                                 </div>
-                                <div id="gdlr-recent-portfolio2-widget-4" className="widget widget_gdlr-recent-portfolio2-widget greennature-item greennature-widget">
-                                    <h3 className="greennature-widget-title">Recent Works</h3>
-                                    <div className="clear"></div>
-                                    <div className="greennature-recent-port2-widget">
-                                        <div className="recent-port-widget-thumbnail">
-                                            <a href="#"><img src="upload/shutterstock_161515241-150x150.jpg" alt="" width="150" height="150" /></a>
-                                        </div>
-                                        <div className="recent-port-widget-thumbnail">
-                                            <a href="#"><img src="upload/shutterstock_133689230-150x150.jpg" alt="" width="150" height="150" /></a>
-                                        </div>
-                                        <div className="recent-port-widget-thumbnail">
-                                            <a href="#"><img src="upload/shutterstock_53600221-150x150.jpg" alt="" width="150" height="150" /></a>
-                                        </div>
-                                        <div className="recent-port-widget-thumbnail">
-                                            <a href="#"><img src="upload/shutterstock_124871620-150x150.jpg" alt="" width="150" height="150" /></a>
-                                        </div>
-                                        <div className="recent-port-widget-thumbnail">
-                                            <a href="#"><img src="upload/shutterstock_281995004-150x150.jpg" alt="" width="150" height="150" /></a>
-                                        </div>
-                                        <div className="recent-port-widget-thumbnail">
-                                            <a href="#"><img src="upload/shutterstock_256181956-150x150.jpg" alt="" width="150" height="150" /></a>
-                                        </div>
-                                        <div className="recent-port-widget-thumbnail">
-                                            <a href="#"><img src="upload/shutterstock_104475683-150x150.jpg" alt="" width="150" height="150" /></a>
-                                        </div>
-                                        <div className="recent-port-widget-thumbnail">
-                                            <a href="#"><img src="upload/shutterstock_278672942-150x150.jpg" alt="" width="150" height="150" /></a>
-                                        </div>
-                                        <div className="clear"></div>
-                                    </div>
-                                </div>
+                                
                                 <div id="categories-3" className="widget widget_categories greennature-item greennature-widget">
-                                    <h3 className="greennature-widget-title">Categories</h3>
+                                <h3 className="greennature-widget-title">All Countries</h3>
                                     <div className="clear"></div>
                                     <ul>
-                                        <li className="cat-item cat-item-2"><a href="#">Aside</a> (1)
+                                        {countries.map(country=>(
+                                        <li>
+                                            <NavLink to={`/countryfilterproject/${country.id}`}>
+                                            <a style={{color:"green"}}>{country.name}</a>
+                                            </NavLink>
                                         </li>
-                                        <li className="cat-item cat-item-3"><a href="#">Audio</a> (1)
-                                        </li>
-                                        <li className="cat-item cat-item-4"><a href="#">Blog</a> (13)
-                                        </li>
-                                        <li className="cat-item cat-item-5"><a href="#">Fit Row</a> (9)
-                                        </li>
-                                        <li className="cat-item cat-item-6"><a href="#">Life Style</a> (4)
-                                        </li>
-                                        <li className="cat-item cat-item-8"><a href="#">Post Slider</a> (3)
-                                        </li>
-                                        <li className="cat-item cat-item-9"><a href="#">Quote</a> (1)
-                                        </li>
-                                        <li className="cat-item cat-item-10"><a href="#">Video</a> (1)
-                                        </li>
+                                        ))}
                                     </ul>
                                 </div>
                             </div>

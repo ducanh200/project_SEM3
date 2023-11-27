@@ -47,6 +47,9 @@ import Topic_filter_news from './components/pages/home/topicfilternews';
 
 import Staff_createnew from './components/pages/staff/createnew';
 import Register from './components/pages/home/register';
+import Country_filter_project from './components/pages/home/countryfilterproject';
+import Country_filter_news from './components/pages/home/countryfilternews';
+import Thankyou from './components/pages/home/thankyou';
 
 
 
@@ -61,19 +64,19 @@ function App() {
       <Route path='/news' element={<NewsAll/>}/>
       <Route path='/newsdetail/:id' element={<NewsDetail/>}/>
       <Route path='/projectdetail/:id' element={<ProjectDetail/>}/>
-      <Route path='/donate' element={<Donate/>}/>
+      <Route path='/donate/:id' element={<Donate/>}/>
       <Route path='/topicfilterproject/:id' element={<Topic_filter_project/>}/>
+      <Route path='/countryfilterproject/:id' element={<Country_filter_project/>}/>
       <Route path='/topicfilternews/:id' element={<Topic_filter_news/>}/>
+      <Route path='/countryfilternews/:id' element={<Country_filter_news/>}/>
       <Route path='/register' element={<Register/>}/>
-
-
-
-
+      <Route path='/thankyou' element={<Thankyou/>}/>
+      
 
 
       
 
-      <Route path='admin/' element={<Dashboard/>}/>
+      <Route path='admin/'  element={<Dashboard/>}/>
       <Route path='admin/projects' element={<Projects/>}/>
       <Route path='admin/news' element={<NewsList/>}/>
       <Route path='admin/createproject' element={<CreateProject/>}/>
@@ -86,11 +89,10 @@ function App() {
       <Route path='admin/detailnews/:id' element={<DetailNews />}/>
       <Route path='admin/topics' element={<Admin_Topic/>}/>
       <Route path='admin/createtopic' element={<Admin_Createtopic/>}/>
-      <Route path='admin/edittopic' element={<Admin_Edittopic/>}/>
-      
+      <Route path='admin/edittopic/:id' element={<Admin_Edittopic/>}/>
       <Route path='admin/countries' element={<Admin_Country/>}/>
       <Route path='admin/createcountry' element={<Admin_Createcountry/>}/>
-      <Route path='admin/editcountry' element={<Admin_Editcountry/>}/>
+      <Route path='admin/editcountry/:id' element={<Admin_Editcountry/>}/>
 
       <Route path='admin/listdonate' element={<ListDonate/>}/>
       <Route path='admin/donatedetail' element={<Donatedetail />}/>

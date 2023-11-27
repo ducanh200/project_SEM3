@@ -4,7 +4,10 @@ import Breadcrumb from "../../layouts/admin/breadcrumb";
 import {useEffect, useState } from "react";
 import api from "../../../services/api";
 import url from "../../../services/url";
+import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function NewsList(){
+    const navigate = useNavigate();
     const [news,setNews] = useState([]);
     const loadNews = async ()=>{
         try {
@@ -17,6 +20,19 @@ function NewsList(){
     useEffect(()=>{
         loadNews();
     },[]);
+
+    const handleDelete = async (newsId) => {
+        try {
+            alert('You sure want delete this news?');
+          const response = await api.delete(`${url.NEWS.DELETE}?id=${newsId}`);
+          console.log("Delete Response:", response.data);
+
+  
+        loadNews();
+        } catch (error) {
+          console.error("Error deleting project:", error);
+        }
+      };
     return(
         <LayoutAdmin>
             <div className="page-breadcrumb">
@@ -57,8 +73,10 @@ function NewsList(){
                                             <tr>
                                                 <th className="border-top-0">#</th>
                                                 <th className="border-top-0">Name</th>
+                                                <th className="border-top-0">Image</th>
                                                 <th className="border-top-0">Topic</th>
-                                                <th className="border-top-0">Country</th>
+                                                <th className="border-top-0">More</th>
+                                                <th className="border-top-0">Delete</th>
                                                 <th></th>
                                                 
                                             </tr>
@@ -68,9 +86,10 @@ function NewsList(){
                                             <tr>
                                                 <td>{news.id}</td>
                                                 <td>{news.name}</td>
+                                                <td><img src={news.thumbnail} style={{maxHeight:"100px",maxWidth:"100px"}} /></td>
                                                 <td>{news.topic.name}</td>
-                                                <td>{news.country.name}</td>
-                                                <td><a href="" className="btn btn-primary">More</a></td>
+                                                <td><NavLink to={`/admin/detailnews/${news.id}`}><a href="" className="btn btn-primary">More</a></NavLink></td>
+                                                <td><a className="btn btn-primary" onClick={() => handleDelete(news.id)}>Delete</a></td>
                                                 
                                             </tr>
                                             ))}

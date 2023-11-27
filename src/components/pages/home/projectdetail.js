@@ -1,7 +1,48 @@
 import Layout from "../../layouts/layouts";
+import api from "../../../services/api";
+import url from "../../../services/url";
+import {useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 function ProjectDetail(){
+    const navigate = useNavigate();
+    const {id} = useParams();
+    const [project,setNews] = useState([]);
+    const [relateds,setRelateds] = useState([]);
+
+
+    const loadNews = async ()=>{
+        try {
+            const rs = await api.get(url.PROJECT.DETAIL+`?id=${id}`);
+            setNews(rs.data);
+        } catch (error) {
+            console.error("Error loading news:", error);
+        }
+    }
+
+    const loadRelateds = async ()=>{
+        try {
+            const rs = await api.get(url.PROJECT.RELATEDS+`?id=${id}`);
+            setRelateds(rs.data);
+        } catch (error) {
+            console.error("Error loading rrr:", error);
+        }
+    }
+    useEffect(()=>{
+        loadNews();
+        loadRelateds();
+    },[id]);
+
+    const handleReadMoreClick = (newId) => {
+        // Sử dụng navigate để điều hướng đến trang mới
+        navigate(`/projectdetail/${newId}`);
+        window.location.reload();
+
+      };
+
     return(
         <Layout>
             
@@ -9,7 +50,7 @@ function ProjectDetail(){
             <div className="greennature-page-title-overlay"></div>
             <div className="greennature-page-title-container container">
            
-                <h1 className="greennature-page-title">Kids Can Volunteer</h1>
+                <h1 className="greennature-page-title">Project:{project.name}</h1>
                
                 <span className="greennature-page-caption">Caption placed here</span>
             </div>
@@ -26,7 +67,10 @@ function ProjectDetail(){
                                         <div className="greennature-portfolio-thumbnail ">
                                             <div className="greennature-stack-image-wrapper">
                                                 <div className="greennature-stack-image">
-                                                    <a href="upload/shutterstock_256181956.jpg" data-fancybox-group="greennature-gal-1" data-rel="fancybox"><img src="upload/shutterstock_256181956.jpg" alt="" width="1280" height="853" /></a>
+                                                    <a href="upload/shutterstock_256181956.jpg" data-fancybox-group="greennature-gal-1" data-rel="fancybox"><img src={project.thumbnail_1} alt="" width="1280" height="853" /></a>
+                                                </div>
+                                                <div className="greennature-stack-image">
+                                                    <a href="upload/shutterstock_256181956.jpg" data-fancybox-group="greennature-gal-1" data-rel="fancybox"><img src={project.thumbnail_2} alt="" width="1280" height="853" /></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -36,9 +80,11 @@ function ProjectDetail(){
                                                 <h4 className="head">Project Info</h4>
                                                  
                                                 <div className="content">
-                                                    <div className="portfolio-info portfolio-clients"><span className="info-head greennature-title">Date </span></div>
-                                                    <div className="portfolio-info portfolio-skills"><span className="info-head greennature-title">City </span></div>
-                                                    <div className="portfolio-info portfolio-website"><span className="info-head greennature-title">Country </span></div>
+                                                    <div className="portfolio-info portfolio-clients"><span className="info-head greennature-title">Date Begin : {project.begin}</span></div>
+                                                    <div className="portfolio-info portfolio-clients"><span className="info-head greennature-title">Date Finish : {project.finish}</span></div>
+                                                    <div className="portfolio-info portfolio-skills"><span className="info-head greennature-title">City : {project.city}</span></div>
+                                                    <div className="portfolio-info portfolio-website"><span className="info-head greennature-title">Country : {project?.country?.name}</span></div>
+                                                    <div className="portfolio-info portfolio-website"><span className="info-head greennature-title">Fund : ${project.fund}</span></div>
                                                     <div className="clear"></div>
 
                                                 </div>
@@ -46,8 +92,9 @@ function ProjectDetail(){
                                             <div className="greennature-portfolio-description">
                                                 <h4 className="head">Project Description</h4>
                                                 <div className="content">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Vivamus sagittis lacus vel augue laoreet rutrum faucibus. Integer legentibus erat a ante historiarum dapibus. At nos hinc posthac, sitientis piros Afros. Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Lorem ipsum dolor.</p>
+                                                    <p>{project.description}</p>
                                                 </div>
+                                                <NavLink to={`/donate/${project.id}`}><a className="btn btn-primary">Donate for Project </a></NavLink>
                                             </div>
                                             <div className="clear"></div>
                                         </div>
@@ -61,51 +108,26 @@ function ProjectDetail(){
                                     <h4 className="head">Related Projects</h4>
                                     <div className="greennature-isotope" data-type="portfolio" data-layout="fitRows">
                                         <div className="clear"></div>
+                                        {relateds.map(related=>(
                                         <div className="three columns">
                                             <div className="greennature-item greennature-portfolio-item greennature-classic-portfolio">
                                                 <div className="greennature-ux greennature-classic-portfolio-ux">
-                                                    <div className="portfolio-thumbnail greennature-image"><img src="upload/shutterstock_53600221-700x400.jpg" alt="" width="700" height="400" /><span className="portfolio-overlay">&nbsp;</span><a className="portfolio-overlay-icon" href="https://vimeo.com/101707505" data-rel="fancybox" data-fancybox-type="iframe"><span className="portfolio-icon" ><i className="fa fa-film" ></i></span></a></div>
+                                                    <div className="portfolio-thumbnail greennature-image"><img src={related.thumbnail_1} style={{minHeight:"200px",maxHeight:"200px"}} alt="" width="700" height="400" /><span className="portfolio-overlay">&nbsp;</span><a className="portfolio-overlay-icon" href="https://vimeo.com/101707505" data-rel="fancybox" data-fancybox-type="iframe"><span className="portfolio-icon" ><i className="fa fa-film" ></i></span></a></div>
                                                     <div className="portfolio-classic-content">
-                                                        <h3 className="portfolio-title"><a  href="#"  >Conservation Volunteer</a></h3>
+                                                        <h3 className="portfolio-title"><a>{related.name}</a></h3>
                                                         <div className="greennature-portfolio-info">
-                                                            <div className="portfolio-info portfolio-tag"><span className="info-head greennature-title">Tags </span><a href="#" rel="tag">Cleaning</a><span className="sep">,</span> <a href="#" rel="tag">Volunteer</a></div>
+                                                            <div className="portfolio-info portfolio-tag"><span className="info-head greennature-title"></span><a href="#" rel="tag">{related?.topic?.name}</a><span className="sep">,</span> <a href="#" rel="tag">{related?.country?.name}</a></div>
                                                             <div className="clear"></div>
                                                         </div>
-                                                        <div className="portfolio-excerpt">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Vivamus...
-                                                            <div className="clear"></div><a href="#" className="excerpt-read-more">Read More</a></div><a className="portfolio-classic-learn-more" href="#">Learn More</a></div>
+                                                        <div className="portfolio-excerpt">{related.description}
+                                                            <div className="clear"></div>
+                                                            <NavLink onClick={() => handleReadMoreClick(related.id)} to={`/projectdetail/${related.id}`}><a style={{marginTop:"10px"}} className="btn btn-primary">Read More</a></NavLink></div>
+                                                            
+                                                            </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="three columns">
-                                            <div className="greennature-item greennature-portfolio-item greennature-classic-portfolio">
-                                                <div className="greennature-ux greennature-classic-portfolio-ux">
-                                                    <div className="portfolio-thumbnail greennature-image"><img src="upload/shutterstock_124871620-700x400.jpg" alt="" width="700" height="400" /><span className="portfolio-overlay">&nbsp;</span><a className="portfolio-overlay-icon" href="#"><span className="portfolio-icon" ><i className="fa fa-link" ></i></span></a></div>
-                                                    <div className="portfolio-classic-content">
-                                                        <h3 className="portfolio-title"><a  href="#"  >Engery Conservation</a></h3>
-                                                        <div className="greennature-portfolio-info">
-                                                            <div className="portfolio-info portfolio-tag"><span className="info-head greennature-title">Tags </span><a href="#" rel="tag">Animals</a><span className="sep">,</span> <a href="#" rel="tag">Volunteer</a></div>
-                                                            <div className="clear"></div>
-                                                        </div>
-                                                        <div className="portfolio-excerpt">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Vivamus...
-                                                            <div className="clear"></div><a href="#" className="excerpt-read-more">Read More</a></div><a className="portfolio-classic-learn-more" href="#">Learn More</a></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="three columns">
-                                            <div className="greennature-item greennature-portfolio-item greennature-classic-portfolio">
-                                                <div className="greennature-ux greennature-classic-portfolio-ux">
-                                                    <div className="portfolio-thumbnail greennature-image"><img src="upload/shutterstock_154639625-700x400.jpg" alt="" width="700" height="400" /><span className="portfolio-overlay">&nbsp;</span><a className="portfolio-overlay-icon" href="upload/shutterstock_154639625.jpg" data-rel="fancybox"><span className="portfolio-icon" ><i className="fa fa-search" ></i></span></a></div>
-                                                    <div className="portfolio-classic-content">
-                                                        <h3 className="portfolio-title"><a  href="#"  >Cursus Adig Pellen</a></h3>
-                                                        <div className="greennature-portfolio-info">
-                                                            <div className="portfolio-info portfolio-tag"><span className="info-head greennature-title">Tags </span><a href="#" rel="tag">Plants</a><span className="sep">,</span> <a href="#" rel="tag">Volunteer</a></div>
-                                                            <div className="clear"></div>
-                                                        </div>
-                                                        <div className="portfolio-excerpt">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Vivamus...
-                                                            <div className="clear"></div><a href="#" className="excerpt-read-more">Read More</a></div><a className="portfolio-classic-learn-more" href="#">Learn More</a></div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        ))}
                                     </div>
                                     <div className="clear"></div>
                                 </div>

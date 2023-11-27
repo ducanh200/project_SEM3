@@ -3,6 +3,7 @@ import api from "../../../services/api";
 import url from "../../../services/url";
 import {useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 function NewsDetail(){
@@ -95,7 +96,7 @@ function NewsDetail(){
                                         <div className="three columns">
                                             <div className="greennature-item greennature-portfolio-item greennature-classic-portfolio">
                                                 <div className="greennature-ux greennature-classic-portfolio-ux">
-                                                    <div className="portfolio-thumbnail greennature-image"><img src={related.thumbnail} alt="" width="700" height="400" /><span className="portfolio-overlay">&nbsp;</span><a className="portfolio-overlay-icon" href="https://vimeo.com/101707505" data-rel="fancybox" data-fancybox-type="iframe"><span className="portfolio-icon" ><i className="fa fa-film" ></i></span></a></div>
+                                                    <div className="portfolio-thumbnail greennature-image"><img src={related.thumbnail} style={{minHeight:"200px",maxHeight:"200px"}} alt="" width="700" height="400" /><span className="portfolio-overlay">&nbsp;</span><a className="portfolio-overlay-icon" href="https://vimeo.com/101707505" data-rel="fancybox" data-fancybox-type="iframe"><span className="portfolio-icon" ><i className="fa fa-film" ></i></span></a></div>
                                                     <div className="portfolio-classic-content">
                                                         <h3 className="portfolio-title"><a>{related.name}</a></h3>
                                                         <div className="greennature-portfolio-info">
@@ -103,7 +104,9 @@ function NewsDetail(){
                                                             <div className="clear"></div>
                                                         </div>
                                                         <div className="portfolio-excerpt">{related.description}
-                                                            <div className="clear"></div><a href="#" className="excerpt-read-more">Read More</a></div><a className="portfolio-classic-learn-more" href="#">Learn More</a></div>
+                                                            <div className="clear"></div>
+                                                            <NavLink to={`/newsdetail/${related.id}`}><a style={{marginTop:"10px"}} className="btn btn-primary">Read More</a></NavLink></div>
+                                                            </div>
                                                 </div>
                                             </div>
                                         </div>
